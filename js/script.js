@@ -23,16 +23,47 @@ TESTER LA VICTOIRE : 4 jetons de la même couleurs alignés horizontalement / ve
 - Pour avoir ces coordonnées j'ai de disponible :
   * L'id (y) de chaque colonne 
   * L'id (x) de chaque div qui est représentée comme ceci : y_x (je récupère seulement le x avec substring(2) 2 étant l'index ds la string)
-- idée 1 : arrayMovesP1 = [[un tableau pour les x], [un tableau pour les y]]
-  Chacun des tableau seraient trié par ordre croissant pour tester si les nombres se suivent si besoin
+- idée 1 : arrayP1x = [les x du P1] ...
+    *Chacun des tableaux seraient trié par ordre croissant pour tester si les nombres se suivent si besoin (avec sort() à chaque click)
+- idée 2 : arrayP1 = [paire de chiffres corrdonnées : ex. : 26 pour x=2 et y=6]. (trié également)
+    * Il faudrait donc pour les victoires diagonales les mettre à la main dans un tableau.
 
 
 
-CONDITIONS DE VICTOIRE : 
-------------------------
-- verticale : même y et 4 x qui se suivent
-- horizontale : même x et 4 y qui se suivent
-- diagonale : 4 y qui se suivent et 4 x qui se suivent 
+
+CONDITIONS DE VICTOIRE POUR UN PLAYER: 
+---------------------------------------
+- verticale : 
+    * 4 nombres xy consécutifs : n / n+1 / n+1+1 / n+1+1+1
+             
+- horizontale :
+    * 4 nombres xy consécutifs : n / n+10 / n+10+10 / n+10+10+10
+    
+- diagonale :
+    [[14, 23, 32, 41],
+    [15, 24, 33, 42],
+    [24, 33, 42, 51],
+    [16, 25, 34, 43],
+    [25, 34, 43, 52],
+    [34, 43, 52, 61],
+    [26, 35, 44, 53],
+    [35, 44, 53, 62],
+    [44, 53, 62, 71],
+    [36, 45, 54, 63],
+    [45, 54, 63, 72],
+    [46, 55, 64, 73],
+    [41, 52, 63, 74],
+    [31, 42, 53, 64],
+    [42, 53, 64, 75],
+    [21, 32, 43, 54],
+    [32, 43, 54, 65],
+    [43, 54, 65, 76],
+    [11, 22, 33, 44],
+    [22, 33, 44, 55],
+    [33, 44, 55, 66],
+    [12, 23, 34, 45],
+    [23, 34, 45, 56],
+    [13, 24, 35, 46]]
 
 */
 
@@ -46,6 +77,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let player = 1;
   let movesP1 = 0;
   let movesP2 = 0;
+  let arrayP1 = [];
+  let arrayP2 = [];
 
   columns.forEach((column) => {
     column.addEventListener("click", (event) => {
@@ -62,8 +95,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
             jeton.setAttribute("class", "jeton1");
             movesP1++;
             spanMovesP1.innerText = movesP1;
+            arrayP1.push(column.id + squares[i].id.substring(2));
+            arrayP1.sort();
             player = 2;
-            /* console.log(player); */
+            console.log(arrayP1);
           } else if (player == 2) {
             jeton.removeAttribute("class");
             jeton.setAttribute("class", "jeton2");
