@@ -1,0 +1,82 @@
+/*
+PSEUDO CODE : Ma reflexion
+-----------------------------
+- Je cible chaque div colonne
+- Au clic sur chaque colonne, je récupère l'id de chacune des colonnes
+- Au clic sur la colonne : je parcours tous les div de la colonne à partir de la fin (tableau : squares)
+- Si un des éléments (squares[i]) est vide, je crée dedans un élément <p></p> "jeton" et j'arrête l'execution de la boucle (break)
+- Au clic je récupère aussi l'id de l'élément div que je rempli
+
+- Je crée une variable "player" qui contiendra un entier 1 ou 2 en fonction du joueur dont c'est le tour
+- Si "player" == 1 "c'est la class "jeton1" qui sera attribuée à l'élément jeton, si "player" == 1  c'est "jeton2"
+- ATTENTION : une class doit être supprimée pour être recréer ou remplacée par une autre (removeAttribute)
+
+- Je fais aussi deux variable : "movesP1" et "movesP2" qui vont compter les moves de chaque joueur
+- Je les incrémente à chaque coup de chaque joueur
+- Je cible les 2 éléments <span></span> de ma page qui doivent afficher les deux nombres de moves et j'insère le résultat de chaque variable
+
+TESTER LA VICTOIRE : 4 jetons de la même couleurs alignés horizontalement / verticalement / diagonale
+------------------------------------------------------------------------------------------------------
+
+- Je pense faire 2 tableaux : 1 pour le P1 et un autre pour le P2
+- A chaque coup je vais remplir ces tableaux avec les coordonnées (x, y) des cases
+- Pour avoir ces coordonnées j'ai de disponible :
+  * L'id (y) de chaque colonne 
+  * L'id (x) de chaque div qui est représentée comme ceci : y_x (je récupère seulement le x avec substring(2) 2 étant l'index ds la string)
+- idée 1 : arrayMovesP1 = [[un tableau pour les x], [un tableau pour les y]]
+  Chacun des tableau seraient trié par ordre croissant pour tester si les nombres se suivent si besoin
+
+
+
+CONDITIONS DE VICTOIRE : 
+------------------------
+- verticale : même y et 4 x qui se suivent
+- horizontale : même x et 4 y qui se suivent
+- diagonale : 4 y qui se suivent et 4 x qui se suivent 
+
+*/
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("loaded");
+
+  const columns = document.querySelectorAll(".gameCol");
+  const spanMovesP1 = document.getElementById("movesP1");
+  const spanMovesP2 = document.getElementById("movesP2");
+
+  let player = 1;
+  let movesP1 = 0;
+  let movesP2 = 0;
+
+  columns.forEach((column) => {
+    column.addEventListener("click", (event) => {
+      console.log(column.id);
+      const squares = column.querySelectorAll(".gameCol div");
+      const squaresLength = squares.length;
+
+      for (let i = squaresLength - 1; i >= 0; i--) {
+        if (squares[i].innerHTML == "") {
+          let jeton = document.createElement("p");
+          squares[i].appendChild(jeton);
+          if (player == 1) {
+            jeton.removeAttribute("class");
+            jeton.setAttribute("class", "jeton1");
+            movesP1++;
+            spanMovesP1.innerText = movesP1;
+            player = 2;
+            /* console.log(player); */
+          } else if (player == 2) {
+            jeton.removeAttribute("class");
+            jeton.setAttribute("class", "jeton2");
+            movesP2++;
+            spanMovesP2.innerText = movesP2;
+            player = 1;
+            /* console.log(player); */
+          }
+
+          console.log(squares[i].id.substring(2));
+          break;
+        }
+      }
+    });
+  });
+});
