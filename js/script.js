@@ -13,22 +13,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let winner = false;
 
   function testVictoryH(array, player) {
-    arrayVictory = [];
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] == array[i + 1] - 10) {
-        arrayVictory.push(array[i]);
-        console.log("arrayVictory : " + arrayVictory);
-        if (arrayVictory.length == 3) {
-          console.log(player + "you win!");
-          winner = true;
+    let arrayVictory = [];
+    let limit = array.length;
+    //Pour chaque élément nombre (x) du tableau arrayP1 ou P2...
+    array.map((x) => {
+      //Je parcours tous le tableau pour voir si il y a un autre nombre qui serait égal à ce nombre + 10
+      for (let i = 0; i < limit; i++) {
+        if (x == array[i] - 10) {
+          //Si oui je push cet élément dans le tableau de victoire
+          arrayVictory.push(x);
+          //Si le tableau de victoire possède déjà 3 éléments je push en plus ce fameux nombre
+          if (arrayVictory.length == 3) {
+            arrayVictory.push(array[i]);
+          }
+          if (arrayVictory.length == 4) {
+            console.log("You Win " + player);
+            winner = true;
+          }
         }
       }
-    }
+    });
+
+    console.log("ArrayVictory : " + arrayVictory);
   }
 
   columns.forEach((column) => {
     column.addEventListener("click", (event) => {
-      /*  console.log(column.id); */
       const squares = column.querySelectorAll(".gameCol div");
       const squaresLength = squares.length;
 
@@ -50,8 +60,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movesP1++;
             spanMovesP1.innerText = movesP1;
 
-            //Je push Les coordonnées xy dans le tableau du P1
-            arrayP1.push(column.id + squares[i].id.substring(2));
+            //Je push Les coordonnées xy dans le tableau du P1 et je les transforme en nombres entiers
+            arrayP1.push(parseInt(column.id + squares[i].id.substring(2)));
             arrayP1.sort();
 
             //Je teste la victoire horizontale
@@ -63,7 +73,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             //Je switch sur le player 2
             player = 2;
-            console.log(arrayP1);
+            /* console.log("arrayP1 : " + arrayP1); */
 
             //Si Player 2
           } else if (player == 2) {

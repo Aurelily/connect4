@@ -23,22 +23,21 @@ TESTER LA VICTOIRE : 4 jetons de la même couleurs alignés horizontalement / ve
 - Pour avoir ces coordonnées j'ai de disponible :
   * L'id (y) de chaque colonne 
   * L'id (x) de chaque div qui est représentée comme ceci : y_x (je récupère seulement le x avec substring(2) 2 étant l'index ds la string)
-- idée 1 : arrayP1x = [les x du P1] ...
-    *Chacun des tableaux seraient trié par ordre croissant pour tester si les nombres se suivent si besoin (avec sort() à chaque click)
-- idée 2 : arrayP1 = [paire de chiffres corrdonnées : ex. : 26 pour x=2 et y=6]. (trié également)
-    * Il faudrait donc pour les victoires diagonales les mettre à la main dans un tableau.
+- Principe : arrayP1 = [paire de chiffres corrdonnées : ex. : 26 pour x=2 et y=6]. (trié également)
+    * Pour les victoires diagonales les mettre "en dur" dans un tableau.
 
 
 
 
 CONDITIONS DE VICTOIRE POUR UN PLAYER:  faire une fonction qui effectue tous les tests pour ne pas avoir à la répéter pour le P2
 ----------------------------------------------------------------------------------------------------------------------------------
-- verticale : 
-    * 4 nombres xy consécutifs : n / n+1 / n+2 / n+3
-             
 - horizontale :
     * 4 nombres xy consécutifs : n / n+10 / n+20 / n+30
     
+
+- verticale : 
+    * 4 nombres xy consécutifs : n / n+1 / n+2 / n+3
+             
 - diagonale :
     [[14, 23, 32, 41],
     [15, 24, 33, 42],
