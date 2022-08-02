@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     var modal = document.getElementById("myModal");
     var modalContent = document.querySelector(".modal-content");
     modal.style.display = "block";
-    /*    const modalWinner = document.createElement("h1");
-    modalWinner.textContent = "Vous avez gagné  " + winner;
-    modalContent.prepend(modalWinner); */
     var modalSpanWinner = document.getElementById("winner");
     modalSpanWinner.textContent = winner;
   }
@@ -99,6 +96,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movesP2++;
             spanMovesP2.innerText = movesP2;
 
+            //Je push Les coordonnées xy dans le tableau du P2 et je les transforme en nombres entiers
+            arrayP2.push(parseInt(column.id + squares[i].id.substring(2)));
+            arrayP2.sort();
+
+            //Je teste la victoire horizontale
+            testVictoryH(arrayP2, "Player 2");
+
+            //Je switch sur le player 1
             player = 1;
           }
 
