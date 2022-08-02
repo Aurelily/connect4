@@ -10,11 +10,27 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let movesP2 = 0;
   let arrayP1 = [];
   let arrayP2 = [];
-  let winner = false;
+  let winner = "";
 
+  //FONCTION QUI DECLANCHE LA MODAL DE FIN DE PARTIE
+  //----------------------------------------------
+  function modalEnd(winner) {
+    var modal = document.getElementById("myModal");
+    var modalContent = document.querySelector(".modal-content");
+    modal.style.display = "block";
+    /*    const modalWinner = document.createElement("h1");
+    modalWinner.textContent = "Vous avez gagné  " + winner;
+    modalContent.prepend(modalWinner); */
+    var modalSpanWinner = document.getElementById("winner");
+    modalSpanWinner.textContent = winner;
+  }
+
+  //FONCTION QUI TESTE LES VICTOIRES HORIZONTALES
+  //----------------------------------------------
   function testVictoryH(array, player) {
     let arrayVictory = [];
     let limit = array.length;
+
     //Pour chaque élément nombre (x) du tableau arrayP1 ou P2...
     array.map((x) => {
       //Je parcours tous le tableau pour voir si il y a un autre nombre qui serait égal à ce nombre + 10
@@ -22,13 +38,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         if (x == array[i] - 10) {
           //Si oui je push cet élément dans le tableau de victoire
           arrayVictory.push(x);
-          //Si le tableau de victoire possède déjà 3 éléments je push en plus ce fameux nombre
+          //Si le tableau de victoire possède déjà 3 éléments je push en plus ce fameux nombre pour arriver à une longueur de tableau de 4
           if (arrayVictory.length == 3) {
             arrayVictory.push(array[i]);
           }
+          //Si le tableau arrive à 4 de long, c'est la victoire
           if (arrayVictory.length == 4) {
             console.log("You Win " + player);
-            winner = true;
+            winner = player;
+            modalEnd(winner);
           }
         }
       }
@@ -65,11 +83,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             arrayP1.sort();
 
             //Je teste la victoire horizontale
-            testVictoryH(arrayP1, "Player 1 : ");
-
-            if (winner == true) {
-              break;
-            }
+            testVictoryH(arrayP1, "Player 1");
 
             //Je switch sur le player 2
             player = 2;
@@ -86,10 +100,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             spanMovesP2.innerText = movesP2;
 
             player = 1;
-            /* console.log(player); */
           }
 
-          /* console.log(squares[i].id.substring(2)); */
           break;
         }
       }
