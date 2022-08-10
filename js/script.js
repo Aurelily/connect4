@@ -10,6 +10,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let movesP2 = 0;
   let arrayP1 = [];
   let arrayP2 = [];
+  let arrayVictoryDiag = [
+    [14, 23, 32, 41],
+    [15, 24, 33, 42],
+    [24, 33, 42, 51],
+    [16, 25, 34, 43],
+    [25, 34, 43, 52],
+    [34, 43, 52, 61],
+    [26, 35, 44, 53],
+    [35, 44, 53, 62],
+    [44, 53, 62, 71],
+    [36, 45, 54, 63],
+    [45, 54, 63, 72],
+    [46, 55, 64, 73],
+    [41, 52, 63, 74],
+    [31, 42, 53, 64],
+    [42, 53, 64, 75],
+    [21, 32, 43, 54],
+    [32, 43, 54, 65],
+    [43, 54, 65, 76],
+    [11, 22, 33, 44],
+    [22, 33, 44, 55],
+    [33, 44, 55, 66],
+    [12, 23, 34, 45],
+    [23, 34, 45, 56],
+    [13, 24, 35, 46],
+  ];
   let winner = "";
 
   //FONCTION QUI DECLANCHE LA MODAL DE FIN DE PARTIE
@@ -22,6 +48,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     modalSpanWinner.textContent = winner;
   }
 
+  //FONCTION QUI TESTE LES VICTOIRES DIAGONALES (Sans tableau en dur)
+  //------------------------------------------------------------------
+  function testVictoryDiag(array, xCoord, yCoord, player) {
+    let limit = array.length;
+    //Pour chaque élément nombre (x) du tableau arrayP1 ou P2... auquel correspond un chiffre y et un chiffre x
+    array.map((x) => {
+      //Je parcours tous le tableau pour voir si il y a un autre chiffre y + 1
+      for (let i = 0; i < limit; i++) {}
+    });
+  }
+
   //FONCTION QUI TESTE LES VICTOIRES HORIZONTALES ET VERTICALES
   //-------------------------------------------------------------
   function testVictoryHandV(array, player) {
@@ -29,15 +66,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     //Pour chaque élément nombre (x) du tableau arrayP1 ou P2...
     array.map((x) => {
-      //TEST VICTOIRE HORIZONTALE
-      //-----------------------
-      //Je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 10
       for (let i = 0; i < limit; i++) {
+        //TEST VICTOIRE HORIZONTALE
+        //-----------------------
+        //Je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 10
         if (x == array[i] - 10) {
-          //Si oui, je reparcoure le tableau pour voir si il y en a un troisième
+          //Si oui, je parcours de nouveau tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 20
           for (let j = 0; j < limit; j++) {
             if (x == array[j] - 20) {
-              //Si oui, je reparcoure le tableau pour voir si il y en a un quatrième
+              //Si oui, je parcours de nouveau tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 30
               for (let k = 0; k < limit; k++) {
                 if (x == array[k] - 30) {
                   //Si oui, c'est la victoire
@@ -52,10 +89,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
           //-----------------------
           //Ou bien si il y a un second nombre qui serait égal à ce nombre + 1
         } else if (x == array[i] - 1) {
-          //Je reparcoure le tableau pour voir si il y en a un troisième
+          //Je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 2
           for (let l = 0; l < limit; l++) {
             if (x == array[l] - 2) {
-              //Si oui je reparcoure le tableau pour voir si il y en a un quatrieme
+              //Si oui je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 3
               for (let m = 0; m < limit; m++) {
                 if (x == array[m] - 3) {
                   //Si oui, c'est la victoire
@@ -84,6 +121,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
           let jeton = document.createElement("p");
           squares[i].appendChild(jeton);
 
+          //Je récupère les coordonnées de la case (attention ce sont des strings)
+          let yCoord = column.id;
+          let xCoord = squares[i].id.substring(2);
+
           //Si Player 1
           if (player == 1) {
             //Je crée un Jeton1
@@ -95,7 +136,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             spanMovesP1.innerText = movesP1;
 
             //Je push Les coordonnées xy dans le tableau du P1, je les transforme en nombres entiers et les tri par ordre décroissants
-            arrayP1.push(parseInt(column.id + squares[i].id.substring(2)));
+            arrayP1.push(parseInt(yCoord + xCoord));
             arrayP1.sort();
 
             //Je teste la victoire horizontale
@@ -116,7 +157,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             spanMovesP2.innerText = movesP2;
 
             //Je push Les coordonnées xy dans le tableau du P2 et je les transforme en nombres entiers
-            arrayP2.push(parseInt(column.id + squares[i].id.substring(2)));
+            arrayP2.push(parseInt(yCoord + xCoord));
             arrayP2.sort();
 
             //Je teste la victoire horizontale

@@ -64,4 +64,15 @@ CONDITIONS DE VICTOIRE POUR UN PLAYER:  faire une fonction qui effectue tous les
     [23, 34, 45, 56],
     [13, 24, 35, 46]]
 
+Idée pour victoire diagonale :
+- Si on a :
+    * 4y qui se suivent de façon y + 1
+    * ET
+    * (4x qui se suivent de façon x + 1
+       OU
+       4x qui se suivent de façon x -1)
+
+
+
+
 */
