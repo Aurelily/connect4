@@ -22,34 +22,53 @@ document.addEventListener("DOMContentLoaded", (event) => {
     modalSpanWinner.textContent = winner;
   }
 
-  //FONCTION QUI TESTE LES VICTOIRES HORIZONTALES
-  //----------------------------------------------
-  function testVictoryH(array, player) {
-    let arrayVictory = [];
+  //FONCTION QUI TESTE LES VICTOIRES HORIZONTALES ET VERTICALES
+  //-------------------------------------------------------------
+  function testVictoryHandV(array, player) {
     let limit = array.length;
 
     //Pour chaque élément nombre (x) du tableau arrayP1 ou P2...
     array.map((x) => {
-      //Je parcours tous le tableau pour voir si il y a un autre nombre qui serait égal à ce nombre + 10
+      //TEST VICTOIRE HORIZONTALE
+      //-----------------------
+      //Je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 10
       for (let i = 0; i < limit; i++) {
         if (x == array[i] - 10) {
-          //Si oui je push cet élément dans le tableau de victoire
-          arrayVictory.push(x);
-          //Si le tableau de victoire possède déjà 3 éléments je push en plus ce fameux nombre pour arriver à une longueur de tableau de 4
-          if (arrayVictory.length == 3) {
-            arrayVictory.push(array[i]);
+          //Si oui, je reparcoure le tableau pour voir si il y en a un troisième
+          for (let j = 0; j < limit; j++) {
+            if (x == array[j] - 20) {
+              //Si oui, je reparcoure le tableau pour voir si il y en a un quatrième
+              for (let k = 0; k < limit; k++) {
+                if (x == array[k] - 30) {
+                  //Si oui, c'est la victoire
+                  console.log("You Win " + player);
+                  winner = player;
+                  modalEnd(winner);
+                }
+              }
+            }
           }
-          //Si le tableau arrive à 4 de long, c'est la victoire
-          if (arrayVictory.length == 4) {
-            console.log("You Win " + player);
-            winner = player;
-            modalEnd(winner);
+          //TEST VICTOIRE VERTICALE
+          //-----------------------
+          //Ou bien si il y a un second nombre qui serait égal à ce nombre + 1
+        } else if (x == array[i] - 1) {
+          //Je reparcoure le tableau pour voir si il y en a un troisième
+          for (let l = 0; l < limit; l++) {
+            if (x == array[l] - 2) {
+              //Si oui je reparcoure le tableau pour voir si il y en a un quatrieme
+              for (let m = 0; m < limit; m++) {
+                if (x == array[m] - 3) {
+                  //Si oui, c'est la victoire
+                  console.log("You Win " + player);
+                  winner = player;
+                  modalEnd(winner);
+                }
+              }
+            }
           }
         }
       }
     });
-
-    console.log("ArrayVictory : " + arrayVictory);
   }
 
   columns.forEach((column) => {
@@ -75,16 +94,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
             movesP1++;
             spanMovesP1.innerText = movesP1;
 
-            //Je push Les coordonnées xy dans le tableau du P1 et je les transforme en nombres entiers
+            //Je push Les coordonnées xy dans le tableau du P1, je les transforme en nombres entiers et les tri par ordre décroissants
             arrayP1.push(parseInt(column.id + squares[i].id.substring(2)));
             arrayP1.sort();
 
             //Je teste la victoire horizontale
-            testVictoryH(arrayP1, "Player 1");
+            testVictoryHandV(arrayP1, "Player 1");
 
             //Je switch sur le player 2
             player = 2;
-            /* console.log("arrayP1 : " + arrayP1); */
+            console.log("arrayP1 : " + arrayP1);
 
             //Si Player 2
           } else if (player == 2) {
@@ -101,7 +120,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             arrayP2.sort();
 
             //Je teste la victoire horizontale
-            testVictoryH(arrayP2, "Player 2");
+            testVictoryHandV(arrayP2, "Player 2");
 
             //Je switch sur le player 1
             player = 1;
