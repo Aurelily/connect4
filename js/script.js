@@ -10,52 +10,61 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let movesP2 = 0;
   let arrayP1 = [];
   let arrayP2 = [];
-  let arrayVictoryDiag = [
-    [14, 23, 32, 41],
-    [15, 24, 33, 42],
-    [24, 33, 42, 51],
-    [16, 25, 34, 43],
-    [25, 34, 43, 52],
-    [34, 43, 52, 61],
-    [26, 35, 44, 53],
-    [35, 44, 53, 62],
-    [44, 53, 62, 71],
-    [36, 45, 54, 63],
-    [45, 54, 63, 72],
-    [46, 55, 64, 73],
-    [41, 52, 63, 74],
-    [31, 42, 53, 64],
-    [42, 53, 64, 75],
-    [21, 32, 43, 54],
-    [32, 43, 54, 65],
-    [43, 54, 65, 76],
-    [11, 22, 33, 44],
-    [22, 33, 44, 55],
-    [33, 44, 55, 66],
-    [12, 23, 34, 45],
-    [23, 34, 45, 56],
-    [13, 24, 35, 46],
-  ];
   let winner = "";
 
-  //FONCTION QUI DECLANCHE LA MODAL DE FIN DE PARTIE
+  //FONCTION QUI DECLENCHE LA MODAL DE FIN DE PARTIE
   //----------------------------------------------
   function modalEnd(winner) {
     var modal = document.getElementById("myModal");
-    var modalContent = document.querySelector(".modal-content");
     modal.style.display = "block";
     var modalSpanWinner = document.getElementById("winner");
     modalSpanWinner.textContent = winner;
   }
 
-  //FONCTION QUI TESTE LES VICTOIRES DIAGONALES (Sans tableau en dur)
-  //------------------------------------------------------------------
-  function testVictoryDiag(array, xCoord, yCoord, player) {
+  //FONCTION QUI TESTE LES VICTOIRES DIAGONALES
+  //---------------------------------------------
+  function testVictoryDiag(array, player) {
     let limit = array.length;
-    //Pour chaque élément nombre (x) du tableau arrayP1 ou P2... auquel correspond un chiffre y et un chiffre x
-    array.map((x) => {
-      //Je parcours tous le tableau pour voir si il y a un autre chiffre y + 1
-      for (let i = 0; i < limit; i++) {}
+    //Pour chaque élément nombre (n) du tableau arrayP1 ou P2... auquel correspond une dizaine d et une unité u
+    array.map((n) => {
+      //Je récupère la dizaine et l'unité du nombre n
+      let diz = Math.floor(n / 10);
+      let unit = n - Math.floor(n / 10) * 10;
+      //Je parcours tous le tableau pour voir si il y a une autre dizaine qui se suit : diz + 1 et unit + ou - 1
+      for (let i = 0; i < limit; i++) {
+        //Je récupère les dizaines et unité de chaque autre nombre
+        let diz2 = Math.floor(array[i] / 10);
+        let unit2 = array[i] - Math.floor(array[i] / 10) * 10;
+        if (
+          (diz2 == diz - 1 && unit2 == unit + 1) ||
+          (diz2 == diz - 1 && unit2 == unit - 1)
+        ) {
+          //Si oui je cherche le troisième
+          for (let j = 0; j < limit; j++) {
+            let diz3 = Math.floor(array[j] / 10);
+            let unit3 = array[j] - Math.floor(array[j] / 10) * 10;
+            if (
+              (diz3 == diz - 2 && unit3 == unit + 2) ||
+              (diz3 == diz - 2 && unit3 == unit - 2)
+            ) {
+              //Si oui je cherche le quatrieme
+              for (let k = 0; k < limit; k++) {
+                let diz4 = Math.floor(array[k] / 10);
+                let unit4 = array[k] - Math.floor(array[k] / 10) * 10;
+                if (
+                  (diz4 == diz - 3 && unit4 == unit + 3) ||
+                  (diz4 == diz - 3 && unit4 == unit - 3)
+                ) {
+                  //Si oui c'est la victoire
+                  console.log("You Win " + player);
+                  winner = player;
+                  modalEnd(winner);
+                }
+              }
+            }
+          }
+        }
+      }
     });
   }
 
@@ -67,7 +76,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     //Pour chaque élément nombre (x) du tableau arrayP1 ou P2...
     array.map((x) => {
       for (let i = 0; i < limit; i++) {
-        //TEST VICTOIRE HORIZONTALE
+        //TEST HORIZONTALE
         //-----------------------
         //Je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 10
         if (x == array[i] - 10) {
@@ -85,7 +94,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               }
             }
           }
-          //TEST VICTOIRE VERTICALE
+          //TEST VERTICALE
           //-----------------------
           //Ou bien si il y a un second nombre qui serait égal à ce nombre + 1
         } else if (x == array[i] - 1) {
@@ -139,8 +148,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
             arrayP1.push(parseInt(yCoord + xCoord));
             arrayP1.sort();
 
-            //Je teste la victoire horizontale
+            //Je teste la victoire verticale ou horizontale
             testVictoryHandV(arrayP1, "Player 1");
+            //Je teste la vistoire diagonale
+            testVictoryDiag(arrayP1, "Player 1");
 
             //Je switch sur le player 2
             player = 2;
@@ -160,8 +171,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
             arrayP2.push(parseInt(yCoord + xCoord));
             arrayP2.sort();
 
-            //Je teste la victoire horizontale
+            //Je teste la victoire verticale ou horizontale
             testVictoryHandV(arrayP2, "Player 2");
+            //Je teste la vistoire diagonale
+            testVictoryDiag(arrayP2, "Player 2");
 
             //Je switch sur le player 1
             player = 1;

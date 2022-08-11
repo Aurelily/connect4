@@ -23,7 +23,7 @@ TESTER LA VICTOIRE : 4 jetons de la même couleurs alignés horizontalement / ve
 - Pour avoir ces coordonnées j'ai de disponible :
   * L'id (y) de chaque colonne 
   * L'id (x) de chaque div qui est représentée comme ceci : y_x (je récupère seulement le x avec substring(2) 2 étant l'index ds la string)
-- Principe : arrayP1 = [paire de chiffres corrdonnées : ex. : 26 pour x=2 et y=6]. (trié également)
+- Principe : arrayP1 = [paire de chiffres corrdonnées : ex. : 26 pour y=2 et x=6]. (trié également)
     * Pour les victoires diagonales les mettre "en dur" dans un tableau.
 
 
@@ -32,11 +32,11 @@ TESTER LA VICTOIRE : 4 jetons de la même couleurs alignés horizontalement / ve
 CONDITIONS DE VICTOIRE POUR UN PLAYER:  faire une fonction qui effectue tous les tests pour ne pas avoir à la répéter pour le P2
 ----------------------------------------------------------------------------------------------------------------------------------
 - horizontale :
-    * 4 nombres xy consécutifs : n / n+10 / n+20 / n+30
+    * 4 nombres yx consécutifs : n / n+10 / n+20 / n+30
     
 
 - verticale : 
-    * 4 nombres xy consécutifs : n / n+1 / n+2 / n+3
+    * 4 nombres yx consécutifs : n / n+1 / n+2 / n+3
              
 - diagonale :
     [[14, 23, 32, 41],
@@ -64,13 +64,22 @@ CONDITIONS DE VICTOIRE POUR UN PLAYER:  faire une fonction qui effectue tous les
     [23, 34, 45, 56],
     [13, 24, 35, 46]]
 
-Idée pour victoire diagonale :
-- Si on a :
+Idée pour victoire diagonale sans tableau en dur :
+---------------------------------------------------
+- Victoire si on a :
     * 4y qui se suivent de façon y + 1
     * ET
     * (4x qui se suivent de façon x + 1
        OU
        4x qui se suivent de façon x -1)
+
+y étant les dizaines
+x étant les unités
+
+Pour récupérer les dizaines à partir d'un nombre n à 2 chiffres :
+
+- dizaines(d) = Math.floor(n / 10)
+- unité(u) = n - (Math.floor(n / 10) * 10)
 
 
 
