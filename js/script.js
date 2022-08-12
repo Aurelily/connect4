@@ -15,10 +15,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //FONCTION QUI DECLENCHE LA MODAL DE FIN DE PARTIE
   //----------------------------------------------
   function modalEnd(winner) {
+    // Je cible la modal
     var modal = document.getElementById("myModal");
+    // La modal s'affiche au lancement de la fonction
     modal.style.display = "block";
+    // Je cible le span qui contient le gagnant et je l'affiche dedans
     var modalSpanWinner = document.getElementById("winner");
     modalSpanWinner.textContent = winner;
+    // Je cible le bouton nouvelle partie
+    var span = document.getElementsByClassName("close")[0];
+    // Au clic je retourne à l'index
+    span.onclick = function () {
+      window.location = "index.php";
+    };
   }
 
   //FONCTION QUI TESTE LES VICTOIRES DIAGONALES
@@ -39,7 +48,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           (diz2 == diz - 1 && unit2 == unit + 1) ||
           (diz2 == diz - 1 && unit2 == unit - 1)
         ) {
-          //Si oui je cherche le troisième
+          //Si oui je cherche la troisième
           for (let j = 0; j < limit; j++) {
             let diz3 = Math.floor(array[j] / 10);
             let unit3 = array[j] - Math.floor(array[j] / 10) * 10;
@@ -47,7 +56,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               (diz3 == diz - 2 && unit3 == unit + 2) ||
               (diz3 == diz - 2 && unit3 == unit - 2)
             ) {
-              //Si oui je cherche le quatrieme
+              //Si oui je cherche la quatrieme
               for (let k = 0; k < limit; k++) {
                 let diz4 = Math.floor(array[k] / 10);
                 let unit4 = array[k] - Math.floor(array[k] / 10) * 10;
@@ -80,10 +89,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         //-----------------------
         //Je parcours tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 10
         if (x == array[i] - 10) {
-          //Si oui, je parcours de nouveau tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 20
+          //Si oui, je parcours de nouveau tous le tableau pour voir si il y a un troisième nombre qui serait égal à ce nombre + 20
           for (let j = 0; j < limit; j++) {
             if (x == array[j] - 20) {
-              //Si oui, je parcours de nouveau tous le tableau pour voir si il y a un second nombre qui serait égal à ce nombre + 30
+              //Si oui, je parcours de nouveau tous le tableau pour voir si il y a un quatrième nombre qui serait égal à ce nombre + 30
               for (let k = 0; k < limit; k++) {
                 if (x == array[k] - 30) {
                   //Si oui, c'est la victoire
@@ -94,7 +103,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               }
             }
           }
-          //TEST VERTICALE
+          //OU ALORS TEST VERTICALE
           //-----------------------
           //Ou bien si il y a un second nombre qui serait égal à ce nombre + 1
         } else if (x == array[i] - 1) {
@@ -117,6 +126,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 
+  //-------------------------------------------------------------
+  //CODE PRINCIPAL
+  //-------------------------------------------------------------
   columns.forEach((column) => {
     column.addEventListener("click", (event) => {
       const squares = column.querySelectorAll(".gameCol div");

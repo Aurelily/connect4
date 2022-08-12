@@ -83,5 +83,9 @@ Pour récupérer les dizaines à partir d'un nombre n à 2 chiffres :
 
 
 
+-----------------------------------------------------------------
+UNE FOIS LA VICTOIRE ATTRIBUEE : UPDATE DE LA PARTIE DANS LA BDD
+-----------------------------------------------------------------
+
 
 */

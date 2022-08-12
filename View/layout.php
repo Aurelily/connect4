@@ -13,20 +13,17 @@
     <header>
         <nav class="navbar">
             <a href="index.php">Puissance 4</a>
-            <?php if (isset($_SESSION['connected']) && !isset($_SESSION['inGame'])): ?>
-                <form method="POST">
+            <?php if (isset($_SESSION['connected'])): ?>
+                <!-- <form method="POST">
+                    <input type="text" name="game_name" placeholder="Nom de la partie"/>
                     <button type="submit" name="submit_game" >Créer une partie
                     </button>
-                </form>
+                </form> -->
                 <form method="POST">
                     <button type="submit" name="deconnexion" >Disconnect
                     </button>
                 </form>
-            <?php elseif (isset($_SESSION['connected']) && isset($_SESSION['inGame'])) : ?> 
-                <form method="POST">
-                    <button type="submit" name="deconnexion" >Disconnect
-                    </button>
-                </form> 
+      
             <?php else : ?>  
                 <a href="./register.php">S'enregistrer</a>
                 <a href="./login.php">Se connecter</a>   

@@ -70,7 +70,7 @@ if (isset($_POST['submit_connect']))
       $_SESSION['login'] = $infoRows["login"];
       $_SESSION['id'] = $infoRows["id_user"];
       $_SESSION['connected'] = true;
-      header('location: ./');
+      header('location: ./createGame.php');
     }
     else
     {

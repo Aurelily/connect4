@@ -9,17 +9,21 @@
 
 <?php ob_start(); /*  Début stockage mémoire tampon */ ?> 
 
-<?php $login = $_SESSION['login'] ?> 
+<?php $login = $_SESSION['login'];  var_dump($_SESSION); ?> 
+
 
 <!-- Modal -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <h1>Vous avez gagné <span id="winner"><?php echo "oooo"?></span></h1>
+    <!-- Modal content -->
+    <div class="modal-content">
+    <h1>Vous avez gagné <span id="winner"></span></h1>
     <p>Joueur 1 rouge : <?= $login ?> / Nb de moves : <span id="movesP1"></span></p>
     <p>Joueur 2 jaune / Nb de moves : <span id="movesP2"></span></p>
-  </div>    
+    <form method="POST">
+        <button type="submit" name="submit_save_game" >Nouvelle partie</button>
+    </form>
+    </div>    
 
 </div>
 
