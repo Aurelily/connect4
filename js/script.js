@@ -22,12 +22,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Je cible le span qui contient le gagnant et je l'affiche dedans
     var modalSpanWinner = document.getElementById("winner");
     modalSpanWinner.textContent = winner;
-    // Je cible le bouton nouvelle partie
-    var span = document.getElementsByClassName("close")[0];
-    // Au clic je retourne à l'index
-    span.onclick = function () {
-      window.location = "index.php";
-    };
   }
 
   //FONCTION QUI TESTE LES VICTOIRES DIAGONALES

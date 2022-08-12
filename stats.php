@@ -11,8 +11,14 @@
 
 <main>
     <div>
-    <?php var_dump($_SESSION);?>
+    <h1>Classement :</h1>
+
     </div>
+    <?php var_dump($_SESSION); ?>
+<!--     <form method="POST">
+        <input type="text" name="game_name" placeholder="Nom de la partie"/>
+        <button type="submit" name="submit_game" >Créer une nouvelle partie</button>
+    </form> -->
 </main>
 
 <?php $content = ob_get_clean(); ?>

@@ -24,8 +24,8 @@ Class Game extends Model {
        
 
 
-        $params = array($userId, 0, 0, 0,$game_name );
-        $sql = "INSERT INTO game2 (id_game, id_player1, nb_moves_p1, nb_moves_p2, win_loose, game_name) VALUES (NULL, ?, ?, ?, ?, ?)";
+        $params = array($userId, NULL, $game_name );
+        $sql = "INSERT INTO game2 (id_game, id_player1, win_loose, game_name) VALUES (NULL, ?, ?, ?)";
 
         $create = self::requestExecute($sql, $params);
 
@@ -54,14 +54,19 @@ Class Game extends Model {
     }
 
 
-    public static function selectGameInfo($id_game){
-        $params = array($id_game);
-        $sql = "SELECT * FROM `game2` WHERE `id_game` = ?";
 
+    public static function getGameInfos($game_name){
+        $params = array($game_name);
+        $sql = "SELECT * FROM `game2` WHERE `game_name` LIKE ?";
         $selectQuery = self::requestExecute($sql, $params);
+        $infos = $selectQuery->fetchAll(PDO::FETCH_ASSOC);
 
-        return $selectQuery;
+        return $infos;
     }
     
-
+/*     public static function updateGameInfo($game_name){
+        $params = array($game_name, $winner);
+        $sql = "UPDATE game2 SET win_loose = ? WHERE game_name = ?";
+        self::requestExecute($sql, $params);
+    } */
 }

@@ -21,7 +21,7 @@
     <p>Joueur 1 rouge : <?= $login ?> / Nb de moves : <span id="movesP1"></span></p>
     <p>Joueur 2 jaune / Nb de moves : <span id="movesP2"></span></p>
     <form method="POST">
-        <button type="submit" name="submit_save_game" >Nouvelle partie</button>
+        <button type="submit" name="submit_save_game" >Voir les stats</button>
     </form>
     </div>    
 

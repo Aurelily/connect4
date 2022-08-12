@@ -32,9 +32,8 @@ if (isset($_POST['submit_game'])){
 
 if (isset($_POST['submit_save_game'])){
  
-        $gameInfos = Game::selectGameInfo($id_game);
-        $infoRows = $gameInfos->fetch();
-        $_SESSION['id_game'] = $infoRows["id_game"];
+        $gameInfos = Game::getGameInfos($game_name);
+        $_SESSION['game_info'] = $gameInfos;
         /*  $_SESSION['inGame'] = true; */
         header('location: ./stats.php');
     

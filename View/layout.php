@@ -14,11 +14,6 @@
         <nav class="navbar">
             <a href="index.php">Puissance 4</a>
             <?php if (isset($_SESSION['connected'])): ?>
-                <!-- <form method="POST">
-                    <input type="text" name="game_name" placeholder="Nom de la partie"/>
-                    <button type="submit" name="submit_game" >Créer une partie
-                    </button>
-                </form> -->
                 <form method="POST">
                     <button type="submit" name="deconnexion" >Disconnect
                     </button>
