@@ -17,10 +17,14 @@
 
     <!-- Modal content -->
     <div class="modal-content">
-    <h1>Vous avez gagné <span id="winner"></span></h1>
-    <p>Joueur 1 rouge : <?= $login ?> / Nb de moves : <span id="movesP1"></span></p>
-    <p>Joueur 2 jaune / Nb de moves : <span id="movesP2"></span></p>
+
     <form method="POST">
+        <h1>Vous avez gagné <input type="text" name="winner" id="winner"/></h1>
+        
+        <p>Joueur 1 rouge : <input type="text" name="player1" id="player1" value = <?= $login ?>> / Nb de moves :  <input type="number" name="movesP1" id="movesP1"/></p>
+
+        <p>Joueur 2 jaune  / Nb de moves :  <input type="number" name="movesP2" id="movesP2"/></p>
+   
         <button type="submit" name="submit_save_game" >Voir les stats</button>
     </form>
     </div>    

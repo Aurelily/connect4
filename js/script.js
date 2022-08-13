@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   console.log("loaded");
 
   const columns = document.querySelectorAll(".gameCol");
-  const spanMovesP1 = document.getElementById("movesP1");
-  const spanMovesP2 = document.getElementById("movesP2");
+  const inputMovesP1 = document.getElementById("movesP1");
+  const inputMovesP2 = document.getElementById("movesP2");
 
   let player = 1;
   let movesP1 = 0;
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // La modal s'affiche au lancement de la fonction
     modal.style.display = "block";
     // Je cible le span qui contient le gagnant et je l'affiche dedans
-    var modalSpanWinner = document.getElementById("winner");
-    modalSpanWinner.textContent = winner;
+    var modalInputWinner = document.getElementById("winner");
+    modalInputWinner.value = winner;
   }
 
   //FONCTION QUI TESTE LES VICTOIRES DIAGONALES
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             //J'incrémente les moves du P1 et j'affiche le résultat
             movesP1++;
-            spanMovesP1.innerText = movesP1;
+            inputMovesP1.value = movesP1;
 
             //Je push Les coordonnées xy dans le tableau du P1, je les transforme en nombres entiers et les tri par ordre décroissants
             arrayP1.push(parseInt(yCoord + xCoord));
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             //J'incrémente les moves du P2 et j'affiche le résultat
             movesP2++;
-            spanMovesP2.innerText = movesP2;
+            inputMovesP2.value = movesP2;
 
             //Je push Les coordonnées xy dans le tableau du P2 et je les transforme en nombres entiers
             arrayP2.push(parseInt(yCoord + xCoord));
