@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             //Je teste la victoire verticale ou horizontale
             testVictoryHandV(arrayP1, "Player 1");
-            //Je teste la vistoire diagonale
+            //Je teste la victoire diagonale
             testVictoryDiag(arrayP1, "Player 1");
 
             //Je switch sur le player 2
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             //Je teste la victoire verticale ou horizontale
             testVictoryHandV(arrayP2, "Player 2");
-            //Je teste la vistoire diagonale
+            //Je teste la victoire diagonale
             testVictoryDiag(arrayP2, "Player 2");
 
             //Je switch sur le player 1

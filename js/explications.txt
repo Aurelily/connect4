@@ -1,4 +1,4 @@
-/*
+
 PSEUDO CODE : Ma reflexion
 -----------------------------
 - Je cible chaque div colonne
@@ -83,9 +83,37 @@ Pour récupérer les dizaines à partir d'un nombre n à 2 chiffres :
 
 
 
------------------------------------------------------------------
-UNE FOIS LA VICTOIRE ATTRIBUEE : UPDATE DE LA PARTIE DANS LA BDD
------------------------------------------------------------------
+-----------------------------
+CLASSEMENT ET RECAP PARTIE
+------------------------------
+
+Quand la victoire est détéctée, la modal de fin s'affiche avec le récap du nombre de coups de chacun et le nom du gagnant.
+
+Sur la modal un bouton : VOIR LE CLASSEMENT
+
+Ce bouton mène sur la page stat.php ou on aura :
+- Tableau avec liste des utilisateurs enregistrés de la table USERS
+        * ID
+        * Login
+        * Nb de parties gagnées
+
+Ce tableau sera trié par ordre décroissant de parties gagnés
+
+- Tableau avec le recap de toutes les parties (contenu de la table GAME2) avec les moves et l'indication du gagnant (via l')
+
+Comment faire ? :
+----------------
+Idée 1 :
+----------
+- Je dois avoir dans la table users de la BDD une colonne 'win' avec le nb de parties gagnées, qui s'update au moment ou j'appuie sur "voir le classement".
+
+- Valeur par defaut à la création du user : 0
+
+- Au clic sur "voir le classement" : 
+    * SI la partie est gagnée par son créateur (Player 1),
+    * récupération de la valeur en cours dans la BDD via l'ID ou le login du user, (SELECT)
+    * et UDATE de cette valeur +1
 
 
-*/
+
+
