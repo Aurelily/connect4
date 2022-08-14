@@ -155,9 +155,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             arrayP1.sort();
 
             //Je teste la victoire verticale ou horizontale
-            testVictoryHandV(arrayP1, "Player 1");
+            testVictoryHandV(arrayP1, "Joueur 1");
             //Je teste la victoire diagonale
-            testVictoryDiag(arrayP1, "Player 1");
+            testVictoryDiag(arrayP1, "Joueur 1");
 
             //Je switch sur le player 2
             player = 2;
@@ -178,9 +178,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
             arrayP2.sort();
 
             //Je teste la victoire verticale ou horizontale
-            testVictoryHandV(arrayP2, "Player 2");
+            testVictoryHandV(arrayP2, "Joueur 2");
             //Je teste la victoire diagonale
-            testVictoryDiag(arrayP2, "Player 2");
+            testVictoryDiag(arrayP2, "Joueur 2");
 
             //Je switch sur le player 1
             player = 1;

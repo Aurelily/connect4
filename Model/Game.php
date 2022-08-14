@@ -1,15 +1,4 @@
 <?php
-/*
-CREATE GAME
-----------------
-- Le joueur connecté crée la partie
-- Une partie va sauvegarder :
-    l'id de la partie
-    l'id du joueur connecté qui crée la partie (joueur 1)
-    Nb de moves joueur 1
-    Nb de moves joueur 2
-    l'id du joueur qui a gagné
- */
 
 require_once 'Model/Model.php';
 
@@ -24,8 +13,8 @@ Class Game extends Model {
        
 
 
-        $params = array($userId, NULL, $game_name );
-        $sql = "INSERT INTO game2 (id_game, id_player1, win_loose, game_name) VALUES (NULL, ?, ?, ?)";
+        $params = array($userId, $game_name, 0, 0, "" );
+        $sql = "INSERT INTO games (id_game, id_player1, game_name, moves_player1, moves_player2, winner) VALUES (NULL, ?, ?, ?, ?, ?)";
 
         $create = self::requestExecute($sql, $params);
 
@@ -35,7 +24,7 @@ Class Game extends Model {
     public static function chkGameExists($game_name)
     {
         $params = array($game_name);
-        $sql = "SELECT * FROM `game2` 
+        $sql = "SELECT * FROM `games` 
                         WHERE `game_name` LIKE ?";
 
         $checkQuery = self::requestExecute($sql,$params);
@@ -57,7 +46,7 @@ Class Game extends Model {
 
     public static function getGameInfos($game_name){
         $params = array($game_name);
-        $sql = "SELECT * FROM `game2` WHERE `game_name` LIKE ?";
+        $sql = "SELECT * FROM `games` WHERE `game_name` LIKE ?";
         $selectQuery = self::requestExecute($sql, $params);
         $infos = $selectQuery->fetchAll(PDO::FETCH_ASSOC);
 

@@ -32,7 +32,7 @@ if (isset($_POST['submit_register']))
   if ( count($_SESSION['errors']) == 0) 
   {
       User::register($login, $password1);
-      header('location: ./login');
+      header('location: ./login.php');
       
   }
 }
@@ -68,7 +68,7 @@ if (isset($_POST['submit_connect']))
       $userInfos = User::getAllInfs($login);
       $infoRows = $userInfos->fetch();
       $_SESSION['login'] = $infoRows["login"];
-      $_SESSION['id'] = $infoRows["id_user"];
+      $_SESSION['id'] = $infoRows["id_creator"];
       $_SESSION['connected'] = true;
       header('location: ./createGame.php');
     }

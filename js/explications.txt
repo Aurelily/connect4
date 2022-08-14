@@ -92,14 +92,14 @@ Quand la victoire est détéctée, la modal de fin s'affiche avec le récap du n
 Sur la modal un bouton : VOIR LE CLASSEMENT
 
 Ce bouton mène sur la page stat.php ou on aura :
-- Tableau avec liste des utilisateurs enregistrés de la table USERS
-        * ID
+- Tableau avec liste des utilisateurs enregistrés de la table CREATORS
+        * id_creator
         * Login
-        * Nb de parties gagnées
+        * Nb de parties gagnées (win_games)
 
 Ce tableau sera trié par ordre décroissant de parties gagnés
 
-- Tableau avec le recap de toutes les parties (contenu de la table GAME2) avec les moves et l'indication du gagnant (via l')
+- Tableau avec le recap de toutes les parties (contenu de la table GAMES) avec les moves P1 et 02 et l'indication du gagnant (winner)
 
 Comment faire ? :
 ----------------
@@ -112,7 +112,7 @@ Idée 1 :
 - Au clic sur "voir le classement" : 
     * SI la partie est gagnée par son créateur (Player 1),
     * récupération de la valeur en cours dans la BDD via l'ID ou le login du user, (SELECT)
-    * et UDATE de cette valeur +1
+    * et UPDATE de cette valeur +1
 
 
 

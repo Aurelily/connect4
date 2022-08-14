@@ -9,7 +9,11 @@
 
 <?php ob_start(); /*  Début stockage mémoire tampon */ ?> 
 
-<?php $login = $_SESSION['login'];  var_dump($_SESSION); ?> 
+<?php
+$login = $_SESSION['login'];
+$id_creator = $_SESSION['id']; 
+var_dump($_SESSION);
+?> 
 
 
 <!-- Modal -->
@@ -20,10 +24,12 @@
 
     <form method="POST">
         <h1>Vous avez gagné <input type="text" name="winner" id="winner"/></h1>
+        <p>Id_creator : <input name="winnerId" id="winnerId" value = <?= $id_creator ?>></p>
         
-        <p>Joueur 1 rouge : <input type="text" name="player1" id="player1" value = <?= $login ?>> / Nb de moves :  <input type="number" name="movesP1" id="movesP1"/></p>
+        
+        <p>Joueur 1 rouge : <input type="text" name="player1" id="player1" value = <?= $login ?>> / Nb de moves :  <input name="movesP1" id="movesP1"/></p>
 
-        <p>Joueur 2 jaune  / Nb de moves :  <input type="number" name="movesP2" id="movesP2"/></p>
+        <p>Joueur 2 jaune  / Nb de moves :  <input name="movesP2" id="movesP2"/></p>
    
         <button type="submit" name="submit_save_game" >Voir les stats</button>
     </form>

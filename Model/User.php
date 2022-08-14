@@ -12,8 +12,8 @@ abstract class User extends Model
     { 
         $params = array($login, password_hash($password, PASSWORD_DEFAULT));
 
-        $sql = 'INSERT INTO users (id_user, login, password)
-                VALUES (NULL, ?, ?)';
+        $sql = 'INSERT INTO creators (id_creator, login, password, win_games)
+                VALUES (NULL, ?, ?, 0)';
 
         $register = self::requestExecute($sql, $params);
 
@@ -25,7 +25,7 @@ abstract class User extends Model
     {
         $params = array($login);
 
-        $sql = "SELECT * FROM `users` 
+        $sql = "SELECT * FROM `creators` 
                         WHERE `login` LIKE ?";
 
         $checkQuery = self::requestExecute($sql,$params);
@@ -50,7 +50,7 @@ abstract class User extends Model
     {
         $params = array($login);
 
-        $sql = "SELECT * FROM `users` WHERE `login` = ?";
+        $sql = "SELECT * FROM `creators` WHERE `login` = ?";
         
         $selectQuery = self::requestExecute($sql, $params);
         
