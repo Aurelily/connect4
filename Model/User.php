@@ -7,7 +7,7 @@ abstract class User extends Model
 
     public function __construct() {}
 
-
+// Register User
     public static function register($login, $password)
     { 
         $params = array($login, password_hash($password, PASSWORD_DEFAULT));
@@ -20,7 +20,7 @@ abstract class User extends Model
         return $register;
     }
 
-    
+// Check if login exist
     public static function chkExists($login)
     {
         $params = array($login);
@@ -45,12 +45,12 @@ abstract class User extends Model
         
     }
 
-
-    public static function getAllInfs($login)
+// Obtenir toutes les infos d'un user via son id
+    public static function getAllInfs($id)
     {
-        $params = array($login);
+        $params = array($id);
 
-        $sql = "SELECT * FROM `creators` WHERE `login` = ?";
+        $sql = "SELECT * FROM `creators` WHERE `id_creator` = ?";
         
         $selectQuery = self::requestExecute($sql, $params);
         

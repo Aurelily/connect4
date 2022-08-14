@@ -14,14 +14,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   //FONCTION QUI DECLENCHE LA MODAL DE FIN DE PARTIE
   //----------------------------------------------
-  function modalEnd(winner) {
+  function modalEnd(winner, creator) {
     // Je cible la modal
     var modal = document.getElementById("myModal");
     // La modal s'affiche au lancement de la fonction
     modal.style.display = "block";
     // Je cible le span qui contient le gagnant et je l'affiche dedans
     var modalInputWinner = document.getElementById("winner");
+    var modalInputCreatorWin = document.getElementById("creatorWin");
     modalInputWinner.value = winner;
+    //Si le gagnant est le joueur 1 createur de la partie
+    if (creator == "Joueur 1") {
+      console.log("GAGNE CREATOR");
+      modalInputCreatorWin.value = "WIN";
+    } else {
+      modalInputCreatorWin.value = "LOOSE";
+      console.log("PERDU CREATOR");
+    }
   }
 
   //FONCTION QUI TESTE LES VICTOIRES DIAGONALES
@@ -61,7 +70,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                   //Si oui c'est la victoire
                   console.log("You Win " + player);
                   winner = player;
-                  modalEnd(winner);
+                  modalEnd(winner, player);
                 }
               }
             }
@@ -92,7 +101,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                   //Si oui, c'est la victoire
                   console.log("You Win " + player);
                   winner = player;
-                  modalEnd(winner);
+                  modalEnd(winner, player);
                 }
               }
             }
@@ -110,7 +119,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                   //Si oui, c'est la victoire
                   console.log("You Win " + player);
                   winner = player;
-                  modalEnd(winner);
+                  modalEnd(winner, player);
                 }
               }
             }

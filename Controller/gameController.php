@@ -26,14 +26,19 @@ if (isset($_POST['submit_game'])){
  
 }
 
-/*-------------------------------
-          SELECT GAME INFOS
---------------------------------*/
+/*---------------------------------------
+SAUVER LA PARTIE
+----------------------------------------*/
 
 if (isset($_POST['submit_save_game'])){
+
+        $moveP1 = $_POST['movesP1'];
+        $moveP2 = $_POST['movesP2'];
+        $winner = $_POST['winner'];
+        $game_name = $_SESSION['game_name'];
  
-        $gameInfos = Game::getGameInfos($game_name);
-        $_SESSION['game_info'] = $gameInfos;
+        Game::updateGameInfo($moveP1, $moveP2, $winner, $game_name);
+
         /*  $_SESSION['inGame'] = true; */
         header('location: ./stats.php');
     

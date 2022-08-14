@@ -11,8 +11,6 @@ Class Game extends Model {
     public static function createGame($game_name){
         $userId = $_SESSION['id'];
        
-
-
         $params = array($userId, $game_name, 0, 0, "" );
         $sql = "INSERT INTO games (id_game, id_player1, game_name, moves_player1, moves_player2, winner) VALUES (NULL, ?, ?, ?, ?, ?)";
 
@@ -43,7 +41,7 @@ Class Game extends Model {
     }
 
 
-
+// Obtenir toutes les infos d'une partie via son nom
     public static function getGameInfos($game_name){
         $params = array($game_name);
         $sql = "SELECT * FROM `games` WHERE `game_name` LIKE ?";
@@ -52,10 +50,20 @@ Class Game extends Model {
 
         return $infos;
     }
+
+// Mettre à jour les infos d'une partie via son nom
     
-/*     public static function updateGameInfo($game_name){
-        $params = array($game_name, $winner);
-        $sql = "UPDATE game2 SET win_loose = ? WHERE game_name = ?";
+    public static function updateGameInfo($moveP1, $moveP2, $winner, $game_name){
+        $params = array(
+            ':moves_player1' => $moveP1,
+            ':moves_player2'=> $moveP2,
+            ':winner' => $winner,
+            ':game_name' => $game_name);
+        $sql = "UPDATE games SET
+        moves_player1 = :moves_player1,
+        moves_player2 = :moves_player2,
+        winner = :winner
+        WHERE game_name = :game_name";
         self::requestExecute($sql, $params);
-    } */
+    }
 }
