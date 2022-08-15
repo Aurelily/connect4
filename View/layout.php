@@ -14,6 +14,7 @@
         <nav class="navbar">
             <a href="index.php">Puissance 4</a>
             <?php if (isset($_SESSION['connected'])): ?>
+                <a href="stats.php">Stats</a>
                 <form method="POST">
                     <button type="submit" name="deconnexion" >Disconnect
                     </button>

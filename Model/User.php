@@ -7,7 +7,8 @@ abstract class User extends Model
 
     public function __construct() {}
 
-// Register User
+// Fonction : Enregistrer un USER (Creator)
+//------------------------------------------
     public static function register($login, $password)
     { 
         $params = array($login, password_hash($password, PASSWORD_DEFAULT));
@@ -20,7 +21,8 @@ abstract class User extends Model
         return $register;
     }
 
-// Check if login exist
+// Fonction : Checker si le login existe déjà en BDD
+//----------------------------------------------------
     public static function chkExists($login)
     {
         $params = array($login);
@@ -45,7 +47,8 @@ abstract class User extends Model
         
     }
 
-// Obtenir toutes les infos d'un user via son login
+// Fonction : Obtenir toutes les infos d'un user via son login
+//--------------------------------------------------------------
     public static function getAllInfs($login)
     {
         $params = array($login);
@@ -54,7 +57,20 @@ abstract class User extends Model
         return $selectQuery;
     }
 
-// Incrémenter de 1 les parties gagnées du user dans la BDD
+// Fonction : Obtenir tout le tableau de user trié de façon décroissante par parties gagnées
+//--------------------------------------------------------------
+public static function getAllUsers()
+{
+
+    $sql = "SELECT login, win_games FROM creators ORDER BY win_games DESC";
+    $selectQuery = self::requestExecute($sql);
+    $infos = $selectQuery->fetchAll(PDO::FETCH_ASSOC);
+    return $infos;
+}
+
+
+// Fonction : Incrémenter de 1 les parties gagnées du creator dans la BDD
+//--------------------------------------------------------------------
     
     public static function updateUserWinGames($login){
 

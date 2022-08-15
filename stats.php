@@ -7,18 +7,40 @@
 
 
 
+
+
 <?php ob_start();?>
 
 <main>
     <div>
-    <h1>Classement :</h1>
 
-    </div>
-    <?php var_dump($_SESSION); ?>
-<!--     <form method="POST">
+    <form method="POST">
         <input type="text" name="game_name" placeholder="Nom de la partie"/>
         <button type="submit" name="submit_game" >Créer une nouvelle partie</button>
-    </form> -->
+    </form> 
+
+        
+    <h1>Recap parties jouées :</h1>
+    <?php
+    $games = Game::getGames();
+    echo('<pre>');
+    var_dump($games);
+    echo('<pre/>');
+    ?>
+    </div>
+    <hr>
+    <div>
+    <h1>Classement :</h1>
+    <?php
+    $users = User::getAllUsers();
+    echo('<pre>');
+    var_dump($users);
+    echo('<pre/>');
+    ?>
+    </div>
+
+
+
 </main>
 
 <?php $content = ob_get_clean(); ?>

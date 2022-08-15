@@ -8,6 +8,8 @@ Class Game extends Model {
         
     }
 
+// Fonction : créer une partie
+//----------------------------
     public static function createGame($game_name){
         $userId = $_SESSION['id'];
        
@@ -18,6 +20,9 @@ Class Game extends Model {
 
         return $create; 
     }
+
+// Fonction : checker si le nom de la partie existe déjà
+//---------------------------------------------------------
 
     public static function chkGameExists($game_name)
     {
@@ -41,7 +46,9 @@ Class Game extends Model {
     }
 
 
-// Obtenir toutes les infos d'une partie via son nom
+// Fonction : Obtenir toutes les infos d'une partie via son nom
+//----------------------------------------------------------------
+
     public static function getGameInfos($game_name){
         $params = array($game_name);
         $sql = "SELECT * FROM `games` WHERE `game_name` LIKE ?";
@@ -51,7 +58,18 @@ Class Game extends Model {
         return $infos;
     }
 
-// Mettre à jour les infos d'une partie via son nom
+// Fonction : Obtenir toutes les infos de toutes les parties
+//----------------------------------------------------------------
+
+public static function getGames(){
+    $sql = "SELECT * FROM `games`";
+    $selectQuery = self::requestExecute($sql);
+    $infos = $selectQuery->fetchAll(PDO::FETCH_ASSOC);
+    return $infos;
+}
+
+// Fonction : Mettre à jour / sauver les infos d'une partie via son nom
+//------------------------------------------------------------------
     
     public static function updateGameInfo($moveP1, $moveP2, $winner, $game_name){
         $params = array(

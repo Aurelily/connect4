@@ -87,7 +87,6 @@ if (isset($_POST['submit_connect']))
 if (isset($_POST['deconnexion'])) 
 {
   session_start();
-
   session_destroy();
   header('Location: ./');
   exit;
