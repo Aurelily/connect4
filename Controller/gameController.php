@@ -45,7 +45,7 @@ if (isset($_POST['submit_save_game'])){
                 User::updateUserWinGames($login);
         }
 
-        /*  $_SESSION['inGame'] = true; */
+        $_SESSION['inGame'] = false; 
         header('location: ./stats.php');
     
     

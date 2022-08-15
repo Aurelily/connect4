@@ -7,12 +7,19 @@
 
 
 
-<?php ob_start(); var_dump($_SESSION);?>
+<?php ob_start();?>
 
 <main>
-    <div>
-        <img src="Media/bear.gif" id="myImg" alt="J'ai disparu !">
-    </div>
+
+<div class="home">
+<a class="connectButton" href="./login.php">Veuillez vous connecter pour jouer !</a> 
+    <section class="stage">
+      <figure class="ball bubble"></figure>
+      <a  href="./register.php">Si vous n'avez pas de compte,</br> enregistrez vous ici.</a> 
+    </section>
+</div>
+
+
 </main>
 
 <?php $content = ob_get_clean(); ?>

@@ -64,7 +64,7 @@ CONDITIONS DE VICTOIRE POUR UN PLAYER:  faire une fonction qui effectue tous les
     [23, 34, 45, 56],
     [13, 24, 35, 46]]
 
-Idée pour victoire diagonale sans tableau en dur :
+Idée pour victoire diagonale sans utilisation du tableau en dur ci dessus:
 ---------------------------------------------------
 - Victoire si on a :
     * 4y qui se suivent de façon y + 1
@@ -89,7 +89,7 @@ CLASSEMENT ET RECAP PARTIE
 
 Quand la victoire est détéctée, la modal de fin s'affiche avec le récap du nombre de coups de chacun et le nom du gagnant.
 
-Sur la modal un bouton : VOIR LE CLASSEMENT
+Sur la modal un bouton : VOIR LES STATS
 
 Ce bouton mène sur la page stat.php ou on aura :
 - Tableau avec liste des utilisateurs enregistrés de la table CREATORS
@@ -105,14 +105,9 @@ Comment faire ? :
 ----------------
 Idée 1 :
 ----------
-- Je dois avoir dans la table users de la BDD une colonne 'win' avec le nb de parties gagnées, qui s'update au moment ou j'appuie sur "voir le classement".
+Je dois avoir dans la table CREATORS de la BDD une colonne 'win_games' avec le nb de parties gagnées. Initialement à 0 elle s'update de +1 au moment ou j'appuie sur "voir les stats" de la modal.
 
-- Valeur par defaut à la création du user : 0
 
-- Au clic sur "voir le classement" : 
-    * SI la partie est gagnée par son créateur (Player 1),
-    * récupération de la valeur en cours dans la BDD via l'ID ou le login du user, (SELECT)
-    * et UPDATE de cette valeur +1
 
 
 
