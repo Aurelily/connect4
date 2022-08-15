@@ -74,7 +74,7 @@ if (isset($_POST['submit_connect']))
     }
     else
     {
-      array_push($_SESSION['errors'], "Erreur de login ou de mot de passe2");
+      array_push($_SESSION['errors'], "Erreur de login ou de mot de passe");
     }
       
   }

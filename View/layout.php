@@ -15,15 +15,16 @@
 
     <header>
         <nav class="navbar">
-            <a href="index.php">Connect4</a>
+            
             <?php if (isset($_SESSION['connected'])): ?>
-                <a href="stats.php">Stats</a>
-                <form method="POST">
-                    <button type="submit" name="deconnexion" >Disconnect
+                <a href="stats.php">Classement</a>
+                <form id="formDisconnect" action="" method="POST">
+                    <button type="submit" name="deconnexion" >Se déconnecter
                     </button>
                 </form>
       
             <?php else : ?>  
+                <a href="index.php">Connect4</a>
                 <a href="./register.php">S'enregistrer</a>
                 <a href="./login.php">Se connecter</a>   
             <?php endif ?>
@@ -32,7 +33,6 @@
    
     <main>
 
-    <?php require_once('View/error.php')?>
     
     <?= /* Récupération du contenu gamescreen.php */
     $content
@@ -41,7 +41,7 @@
     </main>
     
 
-    <footer>CONNECT4 By Lily </footer>
+    <footer>CONNECT4 - By Aurelily </footer>
     
 </body>
 </html>

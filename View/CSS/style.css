@@ -13,6 +13,13 @@
 
 body {
   background-image: url("../../Media/forest.jpg");
+  background-attachment: fixed;
+}
+
+.text-error {
+  text-align: center;
+  margin-top: 5px;
+  color: red;
 }
 
 /* ------------- */
@@ -23,7 +30,6 @@ header,
 footer {
   text-align: center;
   width: 100%;
-  font-size: xx-large;
   font-weight: bold;
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -37,19 +43,45 @@ footer {
   display: flex;
   justify-content: center;
 }
+header {
+  font-size: 1.8em;
+  margin-top: 5px;
+}
 
 /* ------------- */
 /*     NAVBAR    */
 /* ------------- */
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
   color: #365605;
   text-decoration: none;
   text-transform: uppercase;
+  margin: 10px;
+}
+a:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#formDisconnect button {
+  font-size: 1em;
+  font-weight: bold;
+  color: #365605;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  margin: 10px;
+}
+
+#formDisconnect button:hover {
+  cursor: pointer;
+  color: white;
 }
 
 /* -------------- */
@@ -57,7 +89,7 @@ a {
 /* -------------- */
 main {
   width: 100%;
-  min-height: 85vh;
+  min-height: 88vh;
   margin: 0 auto;
   position: relative;
 }
@@ -68,9 +100,8 @@ main {
 
 .home {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -200px 0 0 -200px;
+  top: 20%;
+  left: 38%;
 }
 
 .connectButton {
@@ -93,6 +124,7 @@ main {
 }
 .connectButton:hover {
   background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 .stage a {
@@ -106,6 +138,59 @@ main {
 
 .stage a:hover {
   color: black;
+}
+
+/* ------------- */
+/*     FORMS     */
+/* ------------- */
+.forms {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  z-index: 12;
+  font-size: 1.3em;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.createGame {
+  position: absolute;
+  top: 34%;
+}
+
+.login {
+  position: absolute;
+  top: 28%;
+}
+
+.forms input,
+.formClassement input {
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.forms button,
+.formClassement button {
+  text-align: center;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.forms button:hover,
+.formClassement button:hover {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 /* -------------- */
@@ -197,6 +282,46 @@ footer {
   width: 100%;
   text-align: end;
   padding: 0 2%;
+}
+
+/* -------------- */
+/*   CLASSEMENT   */
+/* -------------- */
+
+.formClassement {
+  z-index: 12;
+  font-size: 1.3em;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.statContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.winnersStats,
+.recapStats {
+  width: 40%;
+  font-size: 1em;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px;
 }
 
 /* ------------------ */
