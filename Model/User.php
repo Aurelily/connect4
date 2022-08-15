@@ -45,18 +45,25 @@ abstract class User extends Model
         
     }
 
-// Obtenir toutes les infos d'un user via son id
-    public static function getAllInfs($id)
+// Obtenir toutes les infos d'un user via son login
+    public static function getAllInfs($login)
     {
-        $params = array($id);
-
-        $sql = "SELECT * FROM `creators` WHERE `id_creator` = ?";
-        
+        $params = array($login);
+        $sql = "SELECT * FROM `creators` WHERE `login` = ?";
         $selectQuery = self::requestExecute($sql, $params);
-        
         return $selectQuery;
     }
 
+// Incrémenter de 1 les parties gagnées du user dans la BDD
     
+    public static function updateUserWinGames($login){
+
+        $params = array($login);
+
+        $sql = "UPDATE creators SET win_games = win_games + 1 WHERE login = ?";
+
+        self::requestExecute($sql, $params);
+    }
 
 }
+

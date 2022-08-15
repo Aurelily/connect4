@@ -24,9 +24,6 @@ var_dump($_SESSION);
 
     <form method="POST">
         <h1>Vous avez gagné <input type="text" name="winner" id="winner"/></h1>
-        <p>Id_creator : <input name="winnerId" id="winnerId" value = <?= $id_creator ?>></p>
-        <p>Creator gagne : <input name="creatorWin" id="creatorWin" /></p>
-        
         
         <p>Joueur 1 rouge : <input type="text" name="player1" id="player1" value = <?= $login ?>> / Nb de moves :  <input name="movesP1" id="movesP1"/></p>
 

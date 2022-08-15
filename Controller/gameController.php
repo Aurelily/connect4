@@ -1,5 +1,6 @@
 <?php
 require_once 'Model/Game.php';
+require_once 'Model/User.php';
 
 
 /*-------------------------------
@@ -36,8 +37,13 @@ if (isset($_POST['submit_save_game'])){
         $moveP2 = $_POST['movesP2'];
         $winner = $_POST['winner'];
         $game_name = $_SESSION['game_name'];
+        $login = $_SESSION['login'];
  
         Game::updateGameInfo($moveP1, $moveP2, $winner, $game_name);
+
+        if($winner == "Joueur 1"){
+                User::updateUserWinGames($login);
+        }
 
         /*  $_SESSION['inGame'] = true; */
         header('location: ./stats.php');
