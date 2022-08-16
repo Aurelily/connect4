@@ -23,12 +23,12 @@
         <li></li>
         <li></li>
     </ul>
-    <div id="spirit1"></div>
-<div id="spirit2"></div>
+  
+
 
 <div>
 
-  <a class="connectButton" href="./login.php">Veuillez vous connecter pour jouer !</a> 
+  <a class="connectButton glassEffect" href="./login.php">Veuillez vous connecter pour jouer !</a> 
   <section class="stage">
   <img src="./Media/titre.png">
   <figure class="ball bubble"></figure>

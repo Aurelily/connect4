@@ -27,20 +27,20 @@
     </ul>
     <div class="formContainer">
 
-    <form class="formClassement" action ="" method="POST">
-        <label for="game_name">Nom de la partie :</label>
-        <input type="text" name="game_name" placeholder="Nom de la partie"/>
-        <button type="submit" name="submit_game" >Créer une nouvelle partie</button>
-        <!-- Affichage des erreurs -->
-        <?php 
-            if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) : ?>
-                <div>
-                    <?php foreach ($_SESSION['errors'] as $error) : ?>
-                        <h5 class="text-error"><?= $error ?></h5>
-                    <?php endforeach ?>
-                </div>
-            <?php  endif; ?>
-    </form> 
+        <form class="formClassement glassEffect" action ="" method="POST">
+            <label for="game_name">Nom de la partie :</label>
+            <input type="text" name="game_name" placeholder="Nom de la partie"/>
+            <button class="glassEffect" type="submit" name="submit_game" >Créer une nouvelle partie</button>
+            <!-- Affichage des erreurs -->
+            <?php 
+                if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) : ?>
+                    <div>
+                        <?php foreach ($_SESSION['errors'] as $error) : ?>
+                            <h5 class="text-error"><?= $error ?></h5>
+                        <?php endforeach ?>
+                    </div>
+                <?php  endif; ?>
+        </form> 
 
     </div>
     <div class="statContainer">

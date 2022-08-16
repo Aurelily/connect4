@@ -22,6 +22,14 @@ body {
   color: red;
 }
 
+.glassEffect {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* ------------- */
 /*     HEADER    */
 /* ------------- */
@@ -31,11 +39,6 @@ footer {
   text-align: center;
   width: 100%;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 footer {
@@ -65,7 +68,7 @@ a {
 }
 a:hover {
   cursor: pointer;
-  color: white;
+  opacity: 0.5;
 }
 
 #formDisconnect button {
@@ -89,7 +92,7 @@ a:hover {
 /* -------------- */
 main {
   width: 100%;
-  min-height: 88vh;
+  min-height: 85vh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -105,11 +108,6 @@ main {
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   position: absolute;
   top: 48%;
@@ -157,9 +155,11 @@ main {
 .formClassement {
   z-index: 12;
   font-size: 1.3em;
-  width: 100%;
+  width: 300px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .formContainer {
@@ -193,11 +193,6 @@ main {
   width: 100%;
   font-size: 1em;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 5px;
   padding: 5px;
 }
@@ -228,11 +223,6 @@ main {
   text-align: center;
   font-size: 1.5em;
   font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   z-index: 10;
   padding: 10px;
@@ -256,8 +246,6 @@ main {
   flex-direction: column;
 }
 .game-container .gameCol div {
-  /*   background-color: white;
-  border: solid 1px black; */
   margin: 5px;
   width: 100px;
   height: 100px;
@@ -266,90 +254,82 @@ main {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
 }
-
-.jeton1 {
-  /* background-color: red !important; */
-  background-image: url("../../Media/j-wood3.png");
+.jeton1,
+.jeton2 {
   background-size: cover;
   width: 100% !important;
   height: 100% !important;
   border-radius: 50%;
-  /* border: 1px solid black; */
+}
+.jeton1 {
+  background-image: url("../../Media/j-wood3.png");
 }
 
 .jeton2 {
-  /* background-color: yellow !important; */
   background-image: url("../../Media/j-stone2.png");
-  background-size: cover;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50%;
-  /* border: 1px solid black; */
 }
-
-#spirit1 {
-  position: absolute;
-  top: 50%;
-  left: 2%;
-  background-image: url("../../Media/spirit1.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 35%;
-  height: 35%;
-}
+#spirit1,
 #spirit2 {
   position: absolute;
-  top: 50%;
-  right: -15%;
-  background-image: url("../../Media/spirit2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 35%;
-  height: 35%;
+  top: 40%;
+  animation: float 6s ease-in-out infinite;
+}
+#spirit1 {
+  left: 5%;
+}
+#spirit2 {
+  right: -10%;
+}
+
+#spirit1 img,
+#spirit2 img {
+  width: 45%;
+  height: 45%;
 }
 
 .titleP1 {
-  position: absolute;
-  top: 40%;
-  left: 20%;
-  color: #365605;
+  left: 8%;
 }
 .titleP2 {
-  position: absolute;
-  top: 40%;
-  right: 60%;
-  color: white;
+  right: 8%;
 }
 .titleP1,
 .titleP2 {
+  position: absolute;
+  top: 20%;
+  color: #365605;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
+  margin: 5px;
+  width: 10%;
+  border-radius: 16px;
 }
 .opacityClass {
   opacity: 0.3;
 }
-
-.jetonP1 {
-  background-image: url("../../Media/j-wood3.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 50%;
-  height: 50%;
+/* Jetons exemples */
+.jetonAnime1,
+.jetonAnime2 {
   position: absolute;
-  top: -100%;
+  top: 10%;
+}
+.jetonAnime1 {
+  left: 10%;
+}
+.jetonAnime2 {
+  right: 10%;
+}
+.jetonAnime1 img,
+.jetonAnime2 img {
+  width: 70px;
+  height: 70px;
 }
 
-.jetonP2 {
-  background-image: url("../../Media/j-stone2.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  top: -100%;
-}
-
-/* Animation des jetons */
+/* Animation des jetons du jeu */
 .animJeton {
   animation-duration: 0.5s;
   animation-name: falling;
@@ -365,6 +345,30 @@ main {
 
   to {
     margin-top: 0%;
+    transform: rotate(360deg);
+  }
+}
+/* Animation des jetons exemples*/
+.animJetonExemple {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -415,6 +419,24 @@ main {
   -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
   filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
   width: 260px;
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+    transform: translatey(0px);
+  }
+  50% {
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+    transform: translatey(-20px);
+  }
+  100% {
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+    transform: translatey(0px);
+  }
 }
 /* ------------- */
 /*     FOOTER    */
@@ -427,7 +449,7 @@ footer {
 }
 
 /* -------------- */
-/*   CLASSEMENT   */
+/*   STATS        */
 /* -------------- */
 
 .statContainer {

@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : dim. 31 juil. 2022 à 14:03
--- Version du serveur : 5.7.36
--- Version de PHP : 7.4.26
+-- Hôte : localhost:8889
+-- Généré le : mar. 16 août 2022 à 18:02
+-- Version du serveur : 5.7.34
+-- Version de PHP : 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,48 +24,80 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `game2`
+-- Structure de la table `creators`
 --
 
-DROP TABLE IF EXISTS `game2`;
-CREATE TABLE IF NOT EXISTS `game2` (
-  `id_game` int(11) NOT NULL AUTO_INCREMENT,
-  `id_player1` int(11) NOT NULL,
-  `nb_moves_p1` int(11) DEFAULT NULL,
-  `nb_moves_p2` int(11) DEFAULT NULL,
-  `id_winner` int(11) NOT NULL,
-  PRIMARY KEY (`id_game`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+CREATE TABLE `creators` (
+  `id_creator` int(11) NOT NULL,
+  `login` text NOT NULL,
+  `password` text NOT NULL,
+  `win_games` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `game2`
+-- Déchargement des données de la table `creators`
 --
 
-INSERT INTO `game2` (`id_game`, `id_player1`, `nb_moves_p1`, `nb_moves_p2`, `id_winner`) VALUES
-(1, 2, 0, 0, 0);
+INSERT INTO `creators` (`id_creator`, `login`, `password`, `win_games`) VALUES
+(6, 'lily', '$2y$10$a3wPNl6KAVdq.XUDa9vRX.TRlrUPYadEC2Fnba.CYZ4fkWtsKcx36', 3),
+(7, 'seb', '$2y$10$Bhb7qs7FNKybTgFKr7JWJu2LKU72LcDEQPA1dZcU10E8nGihI4vEq', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
+-- Structure de la table `games`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+CREATE TABLE `games` (
+  `id_game` int(11) NOT NULL,
+  `id_player1` int(11) NOT NULL,
+  `game_name` text NOT NULL,
+  `moves_player1` int(11) NOT NULL,
+  `moves_player2` int(11) NOT NULL,
+  `winner` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `users`
+-- Déchargement des données de la table `games`
 --
 
-INSERT INTO `users` (`id_user`, `login`, `password`) VALUES
-(1, 'admin', 'admin'),
-(2, 'lily', '$2y$10$MLWqY22tqmVjyjwAVIFr1ufefsOVtM47eTNHPWATdMqwYCAk9M/i.'),
-(6, 'lolo', '$2y$10$uw0yx0PXqfba/DIcI6ivzucfmyWznkebgfs057EFfUS8PAlZNWMkq');
+INSERT INTO `games` (`id_game`, `id_player1`, `game_name`, `moves_player1`, `moves_player2`, `winner`) VALUES
+(52, 6, 'The game', 4, 3, 'Joueur 1'),
+(53, 6, 'Esprits de la forêt', 4, 3, 'Joueur 1'),
+(54, 6, 'Sylvania', 7, 6, 'Joueur 1'),
+(55, 7, 'Pitichat', 6, 5, 'Joueur 1');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `creators`
+--
+ALTER TABLE `creators`
+  ADD PRIMARY KEY (`id_creator`);
+
+--
+-- Index pour la table `games`
+--
+ALTER TABLE `games`
+  ADD PRIMARY KEY (`id_game`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `creators`
+--
+ALTER TABLE `creators`
+  MODIFY `id_creator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT pour la table `games`
+--
+ALTER TABLE `games`
+  MODIFY `id_game` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

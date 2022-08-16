@@ -28,7 +28,7 @@
         <form class="forms createGame" method="POST" action="">
             <label for="game_name">Nom de la partie :</label>
             <input type="text" name="game_name" placeholder="Nom de la partie"/>
-            <button type="submit" name="submit_game" >Créer une partie</button>
+            <button class="glassEffect" type="submit" name="submit_game" >Créer une partie</button>
             <!-- Affichage des erreurs -->
             <?php 
             if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) : ?>

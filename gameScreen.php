@@ -46,15 +46,20 @@ $id_creator = $_SESSION['id'];
        <p><input type="text" name="player1" id="player1" value = "Joueur 2" > / Nb de moves :  <input name="movesP2" id="movesP2" /></p>
         </div>
    
-        <button type="submit" name="submit_save_game" >Sauver la partie et voir le classement</button>
+        <button class="glassEffect" type="submit" name="submit_save_game" >Sauver la partie et voir le classement</button>
     </form>
     </div>    
 
 </div>
 
-
-<div id="spirit1"><div class="jetonP1"><div class="titleP1"><h1><?= $login ?></h1></div></div></div>
-<div id="spirit2"><div class="jetonP2"><div class="titleP2"><h1>Joueur 2</h1></div></div></div>
+<div class="jetonAnime1 animJetonExemple">
+      <img src="./Media/j-wood3.png">
+</div>
+<div class="jetonAnime2 animJetonExemple">
+      <img src="./Media/j-stone2.png">
+</div>
+<div class="titleP1 glassEffect"><h1><?= $login ?></h1></div>
+<div class="titleP2 glassEffect"><h1>Joueur 2</h1></div>
 
 
 <div class="game-container">

@@ -27,7 +27,7 @@
             <input type="text" name="login" placeholder="Pseudo"/>
             <label for="password">Mot de passe :</label>
             <input type="password" name="password" placeholder="Mot de passe"/>
-            <button type="submit" name="submit_connect">Se connecter</button>
+            <button class="glassEffect" type="submit" name="submit_connect">Se connecter</button>
             <!-- Affichage des erreurs -->
             <?php 
             if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) : ?>

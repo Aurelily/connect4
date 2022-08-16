@@ -31,7 +31,7 @@
         <input type="password" name="password1" placeholder="Mot de passe"/>
         <label for="password2">Confirmation:</label>
         <input type="password" name="password2" placeholder="Confirmation mot de passe"/>
-        <button type="submit" name="submit_register">S'enregistrer</button>
+        <button class="glassEffect" type="submit" name="submit_register">S'enregistrer</button>
         <!-- Affichage des erreurs -->
         <?php 
             if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) : ?>
