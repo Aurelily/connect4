@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
     <link rel="stylesheet" type="text/css" href="View/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="View/CSS/specials.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap" rel="stylesheet">
     <script src="http://localhost:8888/connect4/js/script.js"></script>
+
 </head>
 <body>
 
@@ -32,6 +34,7 @@
     </header>
    
     <main>
+
 
     
     <?= /* Récupération du contenu gamescreen.php */

@@ -62,7 +62,7 @@ Class Game extends Model {
 //----------------------------------------------------------------
 
 public static function getGames(){
-    $sql = "SELECT id_game, game_name, moves_player1, moves_player2, winner FROM games ORDER BY id_game DESC";
+    $sql = "SELECT id_game, game_name, moves_player1, moves_player2, winner FROM games ORDER BY id_game DESC LIMIT 15";
     $selectQuery = self::requestExecute($sql);
     $infos = $selectQuery->fetchAll(PDO::FETCH_ASSOC);
     return $infos;

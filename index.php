@@ -10,13 +10,26 @@
 <?php ob_start();?>
 
 <main>
+      <!-- Particules animées en fond -->
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 
-<div class="home">
-<a class="connectButton" href="./login.php">Veuillez vous connecter pour jouer !</a> 
-    <section class="stage">
-      <figure class="ball bubble"></figure>
-      <a  href="./register.php">Si vous n'avez pas de compte,</br> enregistrez vous ici.</a> 
-    </section>
+<div>
+  <a class="connectButton" href="./login.php">Veuillez vous connecter pour jouer !</a> 
+  <section class="stage">
+  <figure class="ball bubble"></figure>
+  <a  href="./register.php">Si vous n'avez pas de compte,</br> enregistrez vous ici.</a> 
+  </section>
 </div>
 
 

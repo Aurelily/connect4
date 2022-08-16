@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const columns = document.querySelectorAll(".gameCol");
   const inputMovesP1 = document.getElementById("movesP1");
   const inputMovesP2 = document.getElementById("movesP2");
+  //Je cible les deux petits personnages 1 et 2
+  const spirit1 = document.getElementById("spirit1");
+  const spirit2 = document.getElementById("spirit2");
 
   let player = 1;
   let movesP1 = 0;
@@ -142,6 +145,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           //Si Player 1
           if (player == 1) {
+            //Je mets en valeur le spirit 2 : c'est à lui
+            spirit1.setAttribute("class", "opacityClass");
+            spirit2.removeAttribute("class", "opacityClass");
             //Je crée un Jeton1
             jeton.removeAttribute("class");
             jeton.setAttribute("class", "jeton1");
@@ -165,6 +171,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             //Si Player 2
           } else if (player == 2) {
+            //Je mets en valeur le spirit 1 : c'est à lui
+            spirit2.setAttribute("class", "opacityClass");
+            spirit1.removeAttribute("class", "opacityClass");
             //Je crée un Jeton2
             jeton.removeAttribute("class");
             jeton.setAttribute("class", "jeton2");

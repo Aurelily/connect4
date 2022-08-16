@@ -12,12 +12,34 @@
 <?php ob_start();?>
 
 <main>
+          <!-- Particules animées en fond -->
+          <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
     <div class="formContainer">
 
     <form class="formClassement" action ="" method="POST">
         <label for="game_name">Nom de la partie :</label>
         <input type="text" name="game_name" placeholder="Nom de la partie"/>
         <button type="submit" name="submit_game" >Créer une nouvelle partie</button>
+        <!-- Affichage des erreurs -->
+        <?php 
+            if (isset($_SESSION['errors']) && count($_SESSION['errors']) > 0) : ?>
+                <div>
+                    <?php foreach ($_SESSION['errors'] as $error) : ?>
+                        <h5 class="text-error"><?= $error ?></h5>
+                    <?php endforeach ?>
+                </div>
+            <?php  endif; ?>
     </form> 
 
     </div>
@@ -43,12 +65,12 @@
         
        </div>
         <div class="recapStats">
-            <h1>Parties jouées :</h1>
+            <h1>Dernières parties jouées :</h1>
 
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Partie n°</th>
                         <th>Nom de la partie</th>
                         <th>Mouvements Joueur 1</th>
                         <th>Mouvements Joueur 2</th>

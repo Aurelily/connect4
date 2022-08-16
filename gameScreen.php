@@ -12,10 +12,9 @@
 <?php
 $login = $_SESSION['login'];
 $id_creator = $_SESSION['id']; 
-var_dump($_SESSION);
 ?> 
 
-
+<main>
 <!-- Modal -->
 <div id="myModal" class="modal">
 
@@ -34,6 +33,8 @@ var_dump($_SESSION);
     </div>    
 
 </div>
+<div id="spirit1"></div>
+<div id="spirit2"></div>
 
 
 <div class="game-container">
@@ -94,7 +95,7 @@ var_dump($_SESSION);
         <div id="7_6"></div>
     </div>
 </div>
-
+</main>
 <?php $content = ob_get_clean(); /* Stockage en mémoire tampon dans la variable $content du contenu html entre les deux balises */ ?>
 
 <?php require_once ('View/layout.php')?>
