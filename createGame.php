@@ -22,7 +22,8 @@
         <li></li>
         <li></li>
     </ul>
-    
+    <div id="spirit1"></div>
+<div id="spirit2"></div>
     <div>
         <form class="forms createGame" method="POST" action="">
             <label for="game_name">Nom de la partie :</label>

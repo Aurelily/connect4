@@ -26,7 +26,7 @@
                 </form>
       
             <?php else : ?>  
-                <a href="index.php">Connect4</a>
+                <!-- <a href="index.php">Connect4</a> -->
                 <a href="./register.php">S'enregistrer</a>
                 <a href="./login.php">Se connecter</a>   
             <?php endif ?>

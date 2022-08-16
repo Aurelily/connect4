@@ -19,6 +19,8 @@
         <li></li>
         <li></li>
     </ul>
+    <div id="spirit1"></div>
+<div id="spirit2"></div>
 
     <div>
         <form class="forms" action="" method="POST">
@@ -42,6 +44,7 @@
         </form>
 
         <section class="stage">
+        <img src="./Media/titre.png">
         <figure class="ball bubble"></figure>
         </section>
     </div>

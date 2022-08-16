@@ -17,9 +17,25 @@ $id_creator = $_SESSION['id'];
 <main>
 <!-- Modal -->
 <div id="myModal" class="modal">
+                  <!-- Particules animées en fond -->
+                  <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 
     <!-- Modal content -->
     <div class="modal-content">
+        
+    <div class="spirit1Modal"><img src="./Media/spirit1.png"></div>
+
 
     <form class="formModal" method="POST">
         <div class="modalRecap">
@@ -35,8 +51,10 @@ $id_creator = $_SESSION['id'];
     </div>    
 
 </div>
-<div id="spirit1"></div>
-<div id="spirit2"></div>
+
+
+<div id="spirit1"><div class="jetonP1"><div class="titleP1"><h1><?= $login ?></h1></div></div></div>
+<div id="spirit2"><div class="jetonP2"><div class="titleP2"><h1>Joueur 2</h1></div></div></div>
 
 
 <div class="game-container">

@@ -133,6 +133,13 @@ main {
 .stage a:hover {
   color: black;
 }
+.stage img {
+  width: 90%;
+  position: absolute;
+  top: -40%;
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.1));
+}
 
 /* ------------- */
 /*     FORMS     */
@@ -214,6 +221,7 @@ main {
   font-size: 1em;
   font-weight: bold;
   border: none;
+  pointer-events: none;
 }
 
 .formModal button {
@@ -248,16 +256,21 @@ main {
   flex-direction: column;
 }
 .game-container .gameCol div {
-  background-color: white;
-  border: solid 1px black;
+  /*   background-color: white;
+  border: solid 1px black; */
   margin: 5px;
   width: 100px;
   height: 100px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .jeton1 {
   /* background-color: red !important; */
-  background-image: url("../../Media/j-wood.png");
+  background-image: url("../../Media/j-wood3.png");
   background-size: cover;
   width: 100% !important;
   height: 100% !important;
@@ -267,7 +280,7 @@ main {
 
 .jeton2 {
   /* background-color: yellow !important; */
-  background-image: url("../../Media/j-stone.png");
+  background-image: url("../../Media/j-stone2.png");
   background-size: cover;
   width: 100% !important;
   height: 100% !important;
@@ -278,25 +291,62 @@ main {
 #spirit1 {
   position: absolute;
   top: 50%;
-  left: 10%;
-  background-image: url("../../Media/j-wood.png");
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  left: 2%;
+  background-image: url("../../Media/spirit1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35%;
+  height: 35%;
 }
 #spirit2 {
   position: absolute;
   top: 50%;
-  right: 10%;
-  background-image: url("../../Media/j-stone.png");
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  right: -15%;
+  background-image: url("../../Media/spirit2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35%;
+  height: 35%;
+}
+
+.titleP1 {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  color: #365605;
+}
+.titleP2 {
+  position: absolute;
+  top: 40%;
+  right: 60%;
+  color: white;
+}
+.titleP1,
+.titleP2 {
+  font-weight: bold;
 }
 .opacityClass {
   opacity: 0.3;
+}
+
+.jetonP1 {
+  background-image: url("../../Media/j-wood3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: -100%;
+}
+
+.jetonP2 {
+  background-image: url("../../Media/j-stone2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: -100%;
 }
 
 /* Animation des jetons */
@@ -356,7 +406,16 @@ main {
 .modalRecap {
   margin-left: 20%;
 }
-
+.spirit1Modal {
+  position: absolute;
+  top: -70%;
+  left: -30%;
+}
+.spirit1Modal img {
+  -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+  width: 260px;
+}
 /* ------------- */
 /*     FOOTER    */
 /* ------------- */
@@ -380,9 +439,9 @@ footer {
 .winnersStats,
 .recapStats {
   width: 40%;
-  font-size: 1em;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.2);
+  font-size: 1.2em;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -390,4 +449,20 @@ footer {
   border-radius: 5px;
   padding: 5px;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tableStat {
+  border: solid 1px white;
+  width: 90%;
+  border-collapse: collapse;
+  margin: 10px;
+}
+.tableStat td,
+.tableStat th {
+  border: solid 1px white;
+  text-align: center;
+  border-collapse: collapse;
 }

@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const soundP1 = new Audio("./Media/wood4.wav");
   const soundP2 = new Audio("./Media/stone.wav");
   const soundFinal = new Audio("./Media/cute.wav");
+  const soundIntro = new Audio("./Media/cute-zic.flac");
 
   let player = 1;
   let movesP1 = 0;
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //----------------------------------------------
   function modalEnd(winner) {
     soundFinal.play();
+    soundIntro.play();
     // Je cible la modal
     var modal = document.getElementById("myModal");
     // La modal s'affiche au lancement de la fonction

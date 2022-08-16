@@ -19,6 +19,8 @@
         <li></li>
         <li></li>
     </ul>
+    <div id="spirit1"></div>
+<div id="spirit2"></div>
     <div>
         <form class="forms login" action="" method="POST">
             <label for="login">Pseudo :</label>
@@ -37,6 +39,7 @@
             <?php  endif; ?>
         </form>
         <section class="stage">
+        <img src="./Media/titre.png">
             <figure class="ball bubble"></figure>
         </section>
     </div>

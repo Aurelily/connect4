@@ -45,8 +45,8 @@
     </div>
     <div class="statContainer">
          <div class="winnersStats">
-             <h1>Classement :</h1>
-             <table>
+             <h2>Classement :</h2>
+             <table class="tableStat">
                 <thead>
                     <tr>
                         <th>Pseudo</th>
@@ -65,9 +65,9 @@
         
        </div>
         <div class="recapStats">
-            <h1>Dernières parties jouées :</h1>
+            <h2>Dernières parties jouées :</h2>
 
-            <table>
+            <table class="tableStat">
                 <thead>
                     <tr>
                         <th>Partie n°</th>
