@@ -4,9 +4,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const columns = document.querySelectorAll(".gameCol");
   const inputMovesP1 = document.getElementById("movesP1");
   const inputMovesP2 = document.getElementById("movesP2");
-  //Je cible les deux petits personnages 1 et 2
+  // Je cible les deux petits personnages 1 et 2
   const spirit1 = document.getElementById("spirit1");
   const spirit2 = document.getElementById("spirit2");
+
+  // Je crée des objets audio pour jouer les sons
+  const soundP1 = new Audio("./Media/wood4.wav");
+  const soundP2 = new Audio("./Media/stone.wav");
+  const soundFinal = new Audio("./Media/cute.wav");
 
   let player = 1;
   let movesP1 = 0;
@@ -18,6 +23,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //FONCTION QUI DECLENCHE LA MODAL DE FIN DE PARTIE
   //----------------------------------------------
   function modalEnd(winner) {
+    soundFinal.play();
     // Je cible la modal
     var modal = document.getElementById("myModal");
     // La modal s'affiche au lancement de la fonction
@@ -126,6 +132,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //-------------------------------------------------------------
   //CODE PRINCIPAL
   //-------------------------------------------------------------
+
   columns.forEach((column) => {
     column.addEventListener("click", (event) => {
       const squares = column.querySelectorAll(".gameCol div");
@@ -150,7 +157,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             spirit2.removeAttribute("class", "opacityClass");
             //Je crée un Jeton1
             jeton.removeAttribute("class");
-            jeton.setAttribute("class", "jeton1");
+            jeton.setAttribute("class", "jeton1 animJeton");
+            soundP1.play();
 
             //J'incrémente les moves du P1 et j'affiche le résultat
             movesP1++;
@@ -176,7 +184,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
             spirit1.removeAttribute("class", "opacityClass");
             //Je crée un Jeton2
             jeton.removeAttribute("class");
-            jeton.setAttribute("class", "jeton2");
+            jeton.setAttribute("class", "jeton2 animJeton");
+            soundP2.play();
 
             //J'incrémente les moves du P2 et j'affiche le résultat
             movesP2++;

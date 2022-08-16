@@ -21,14 +21,16 @@ $id_creator = $_SESSION['id'];
     <!-- Modal content -->
     <div class="modal-content">
 
-    <form method="POST">
-        <h1>Vous avez gagné <input type="text" name="winner" id="winner"/></h1>
-        
-        <p>Joueur 1 rouge : <input type="text" name="player1" id="player1" value = <?= $login ?>> / Nb de moves :  <input name="movesP1" id="movesP1"/></p>
+    <form class="formModal" method="POST">
+        <div class="modalRecap">
+        <h1>Vous avez gagné <input type="text" name="winner" id="winner" /></h1>
+       
+       <p><input type="text" name="player1" id="player1" value = <?= $login ?> > / Nb de moves :  <input name="movesP1" id="movesP1" /></p>
 
-        <p>Joueur 2 jaune  / Nb de moves :  <input name="movesP2" id="movesP2"/></p>
+       <p><input type="text" name="player1" id="player1" value = "Joueur 2" > / Nb de moves :  <input name="movesP2" id="movesP2" /></p>
+        </div>
    
-        <button type="submit" name="submit_save_game" >Voir les stats</button>
+        <button type="submit" name="submit_save_game" >Sauver la partie et voir le classement</button>
     </form>
     </div>    
 
