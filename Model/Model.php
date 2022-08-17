@@ -8,17 +8,17 @@ abstract class Model {
     // Instancie et renvoie l'objet PDO associé 
     private static function getBdd() 
     {
-        //version locale
+/*         //version locale
         $servername = 'localhost';
         $username = 'root';
         $password = 'root';
-        $db = 'connect4';
+        $db = 'connect4'; */
 
-/*         //version OVH DESIGN-DEV.NET
+        //version OVH DESIGN-DEV.NET
         $servername = 'designderl318.mysql.db:3306';
         $username = 'designderl318';
         $password = 'zQdqujc8j6yr';
-        $db = 'designderl318'; */
+        $db = 'designderl318';
 
         try
         {
