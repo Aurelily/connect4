@@ -1,0 +1,224 @@
+/* ------------------
+MEDIA QUERIES
+--------------------*/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 220px) and (max-width: 767px) {
+  /* LAYOUT
+--------------*/
+  .circles {
+    display: none;
+  }
+
+  #spirit1,
+  #spirit2 {
+    position: absolute;
+    top: 80%;
+    animation: float 6s ease-in-out infinite;
+  }
+  #spirit1 {
+    left: 20%;
+  }
+  #spirit2 {
+    left: 50%;
+  }
+
+  #spirit1 img,
+  #spirit2 img {
+    width: 100px;
+  }
+  /* HOME
+--------------*/
+
+  .connectButton {
+    top: 45%;
+  }
+
+  /* REGISTER
+--------------*/
+  .formRegister {
+    top: 30%;
+    left: 5%;
+    font-size: 1.5em;
+    width: 90%;
+  }
+
+  /* LOGIN
+--------------*/
+
+  .forms {
+    top: 37%;
+    left: 25%;
+    font-size: 2em;
+    width: 50%;
+  }
+  /* GAME SCREEN
+------------------*/
+  .game-container .gameCol div {
+    margin: 5px;
+    width: 45px;
+    height: 45px;
+  }
+  .titleP1 {
+    left: 0%;
+  }
+  .titleP2 {
+    right: 0%;
+  }
+  .titleP1,
+  .titleP2 {
+    top: 20%;
+    margin: 5px;
+    width: 40%;
+  }
+  /* MODAL
+------------------*/
+  .modal-content {
+    margin: 74% 3%;
+    padding: 20px;
+    width: 85%;
+  }
+  .spirit1Modal {
+    top: -130%;
+    left: 13%;
+  }
+  .modalRecap {
+    margin-left: 0%;
+    text-align: left;
+  }
+  .formModal input,
+  .formModal h1 {
+    text-align: center;
+  }
+}
+/* STATS
+------------------*/
+.formContainer {
+  flex-direction: column;
+  padding: 10px;
+}
+.formClassement {
+  font-size: 1.5em;
+  width: 170%;
+  padding: 10px;
+}
+.statContainer {
+  flex-direction: column;
+}
+.winnersStats,
+.recapStats {
+  width: 92%;
+  background: rgba(255, 255, 255, 0.6);
+}
+.tableStat {
+  width: 100%;
+  margin: 10px;
+}
+/* Tablet (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* LAYOUT
+--------------*/
+
+  #spirit1,
+  #spirit2 {
+    position: absolute;
+    top: 75%;
+    animation: float 6s ease-in-out infinite;
+  }
+  #spirit1 {
+    left: 5%;
+  }
+  #spirit2 {
+    left: 70%;
+  }
+
+  #spirit1 img,
+  #spirit2 img {
+    width: 200px;
+  }
+
+  /* HOME
+--------------*/
+
+  .connectButton {
+    top: 45%;
+  }
+
+  /* REGISTER
+--------------*/
+  .formRegister {
+    top: 35%;
+    left: 30%;
+    font-size: 2em;
+    width: 40%;
+  }
+
+  /* LOGIN
+--------------*/
+
+  .forms {
+    top: 37%;
+    left: 30%;
+    font-size: 2em;
+    width: 40%;
+  }
+  /* GAME SCREEN
+------------------*/
+  .titleP1 {
+    left: 0%;
+  }
+  .titleP2 {
+    right: 0%;
+  }
+  .titleP1,
+  .titleP2 {
+    top: 14%;
+    margin: 5px;
+    width: 40%;
+  }
+  .jetonAnime1,
+  .jetonAnime2 {
+    top: 7%;
+  }
+  .jetonAnime1 {
+    left: 17%;
+  }
+  .jetonAnime2 {
+    right: 17%;
+  }
+  .jetonAnime1 img,
+  .jetonAnime2 img {
+    width: 70px;
+    height: 70px;
+  }
+  /* MODAL
+------------------*/
+  .modal-content {
+    margin: 35% 18%;
+    padding: 20px;
+    width: 56%;
+  }
+  /* STATS
+------------------*/
+  .formContainer {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .formClassement {
+    font-size: 1.5em;
+    width: 170%;
+    padding: 10px;
+  }
+  .statContainer {
+    flex-direction: column;
+  }
+  .winnersStats,
+  .recapStats {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  .tableStat {
+    width: 50%;
+    margin: 10px;
+  }
+}

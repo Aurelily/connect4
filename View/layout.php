@@ -7,6 +7,7 @@
     <title><?= $title ?></title>
     
     <link rel="stylesheet" type="text/css" href="View/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="View/CSS/medias.css">
     <link rel="stylesheet" type="text/css" href="View/CSS/specials.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

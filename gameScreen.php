@@ -34,21 +34,21 @@ $id_creator = $_SESSION['id'];
     <!-- Modal content -->
     <div class="modal-content">
         
-    <div class="spirit1Modal"><img src="./Media/spirit1.png"></div>
+        <div class="spirit1Modal"><img src="./Media/spirit1.png"></div>
 
 
-    <form class="formModal" method="POST">
-        <div class="modalRecap">
-       
-        <h1>Vous avez gagné <input type="text" name="winner" id="winner" /></h1>
-       
-       <p><input type="text" name="player1" id="player1" value = <?= $login ?> > / Nb de moves :  <input name="movesP1" id="movesP1" /></p>
+        <form class="formModal" method="POST">
+            <div class="modalRecap">
+        
+            <h1>Vous avez gagné <input type="text" name="winner" id="winner" /></h1>
+        
+        <p><input type="text" name="player1" id="player1" value = <?= $login ?> > / Nb de moves :  <input name="movesP1" id="movesP1" /></p>
 
-       <p><input type="text" name="player1" id="player1" value = "Joueur 2" > / Nb de moves :  <input name="movesP2" id="movesP2" /></p>
-        </div>
-   
-        <button class="glassEffect" type="submit" name="submit_save_game" >Sauver la partie et voir le classement</button>
-    </form>
+        <p><input type="text" name="player1" id="player1" value = "Joueur 2" > / Nb de moves :  <input name="movesP2" id="movesP2" /></p>
+            </div>
+    
+            <button class="glassEffect" type="submit" name="submit_save_game" >Sauver la partie et voir le classement</button>
+        </form>
     </div>    
 
 </div>
