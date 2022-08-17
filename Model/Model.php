@@ -14,12 +14,6 @@ abstract class Model {
         $password = 'root';
         $db = 'connect4';
 
-/*         //version OVH DESIGN-DEV.NET
-        $servername = 'designderl318.mysql.db:3306';
-        $username = 'designderl318';
-        $password = 'zQdqujc8j6yr';
-        $db = 'designderl318'; */
-
         try
         {
             self::$bdd = new PDO( "mysql:host=$servername;dbname=$db", $username, $password,
