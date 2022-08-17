@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("loaded");
 
+  // Je cible toutes les colonnes de la grille
   const columns = document.querySelectorAll(".gameCol");
+  // Je cible les inputs d'affichage des moves dans la modal
   const inputMovesP1 = document.getElementById("movesP1");
   const inputMovesP2 = document.getElementById("movesP2");
-  // Je cible les deux petits personnages 1 et 2
+  // Je cible les images des deux spirits 1 et 2
   const spirit1 = document.getElementById("spirit1");
   const spirit2 = document.getElementById("spirit2");
 
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const soundFinal = new Audio("./Media/cute.wav");
   const soundIntro = new Audio("./Media/cute-zic.flac");
 
+  //Je déclare toutes les variables dont je vais avoir besoin plus bas
   let player = 1;
   let movesP1 = 0;
   let movesP2 = 0;
@@ -132,7 +135,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   //-------------------------------------------------------------
-  //CODE PRINCIPAL
+  //CODE PRINCIPAL POUR LE FONCTIONNEMENT DU JEU
   //-------------------------------------------------------------
 
   columns.forEach((column) => {

@@ -1,4 +1,4 @@
-<?php $title="register" ?>
+<?php $title="Créer une partie" ?>
 <?php session_start(); ?>
 <?php require_once('Model/User.php');?>
 <?php require_once('Controller/userController.php');?>
@@ -9,6 +9,7 @@
 
 <?php ob_start(); ?>
 <main>
+    
           <!-- Particules animées en fond -->
           <ul class="circles">
         <li></li>

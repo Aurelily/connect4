@@ -1,4 +1,4 @@
-<?php $title="Welcome" ?>
+<?php $title="Statistiques" ?>
 <?php session_start(); ?>
 <?php require_once('Model/User.php');?>
 <?php require_once('Controller/userController.php');?>
@@ -49,7 +49,7 @@
              <table class="tableStat">
                 <thead>
                     <tr>
-                        <th>Pseudo</th>
+                        <th>Pseudos</th>
                         <th>Parties gagnées</th>
                     </tr>
                 </thead>
@@ -71,6 +71,7 @@
                 <thead>
                     <tr>
                         <th>Partie n°</th>
+                        <th>Pseudo Joueur 1</th>
                         <th>Nom de la partie</th>
                         <th>Mouvements Joueur 1</th>
                         <th>Mouvements Joueur 2</th>
@@ -83,6 +84,7 @@
                     foreach($games as $game){
                         echo ('<tr>
                         <td>'.$game['id_game'].'</td>
+                        <td>'.$game['login_player1'].'</td>
                         <td>'.$game['game_name'].'</td>
                         <td>'.$game['moves_player1'].'</td>
                         <td>'.$game['moves_player2'].'</td>

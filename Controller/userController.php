@@ -13,6 +13,7 @@ $_SESSION['errors'] = array();
 if (isset($_POST['submit_register'])) 
 {
   // receive all input values from the form
+  $regexPass = '/^(?=.*[!@#$%^&*-])(?=.*[0-9])(?=.*[A-Z]).{8,20}$/';
   $login = htmlspecialchars($_POST['login']);
   $password1 = htmlspecialchars($_POST['password1']);
   $password2 = htmlspecialchars($_POST['password2']);
@@ -21,6 +22,9 @@ if (isset($_POST['submit_register']))
   // by adding (array_push()) corresponding error unto $errors array  
   if (empty($login)) { array_push($_SESSION['errors'], "Un pseudo est obligatoire"); }
   if (empty($password1)) { array_push($_SESSION['errors'], "Un mot de passe est requis"); }
+  if(!preg_match($regexPass, $password1)){
+    array_push($_SESSION['errors'], "Mot de passe invalide");
+  }
   if ($password1 != $password2) { array_push($_SESSION['errors'], "Les deux mots de passe ne correspondent pas."); }
 
   //check if user exists

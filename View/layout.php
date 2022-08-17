@@ -15,6 +15,7 @@
 
 
     <script src="http://localhost:8888/connect4/js/script.js"></script>
+    
 
 </head>
 <body>

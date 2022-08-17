@@ -16,7 +16,7 @@ $id_creator = $_SESSION['id'];
 
 <main>
 <!-- Modal -->
-<div id="myModal" class="modal">
+<div id="myModal" class="modal glassEffect">
                   <!-- Particules animées en fond -->
                   <ul class="circles">
         <li></li>
@@ -39,6 +39,7 @@ $id_creator = $_SESSION['id'];
 
     <form class="formModal" method="POST">
         <div class="modalRecap">
+       
         <h1>Vous avez gagné <input type="text" name="winner" id="winner" /></h1>
        
        <p><input type="text" name="player1" id="player1" value = <?= $login ?> > / Nb de moves :  <input name="movesP1" id="movesP1" /></p>

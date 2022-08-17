@@ -152,6 +152,17 @@ main {
   display: flex;
   flex-direction: column;
 }
+.formRegister {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  z-index: 12;
+  font-size: 1.3em;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 .formClassement {
   z-index: 12;
   font-size: 1.3em;
@@ -180,7 +191,8 @@ main {
 }
 
 .forms input,
-.formClassement input {
+.formClassement input,
+.formRegister input {
   margin-bottom: 10px;
   padding: 5px;
   border-radius: 5px;
@@ -188,7 +200,8 @@ main {
 }
 
 .forms button,
-.formClassement button {
+.formClassement button,
+.formRegister button {
   text-align: center;
   width: 100%;
   font-size: 1em;
@@ -227,6 +240,17 @@ main {
   z-index: 10;
   padding: 10px;
   margin-top: 20px;
+}
+/* --------------- */
+/*     SECURITY    */
+/* --------------- */
+#securityPass {
+  font-size: 0.6em;
+  margin-bottom: 5px;
+  color: red;
+}
+.matchColor {
+  color: green;
 }
 
 /* -------------- */
@@ -460,7 +484,7 @@ footer {
 
 .winnersStats,
 .recapStats {
-  width: 40%;
+  width: 50%;
   font-size: 1.2em;
   font-weight: 900;
   background: rgba(255, 255, 255, 0.4);

@@ -1,4 +1,4 @@
-<?php $title="login" ?>
+<?php $title="Connexion" ?>
 <?php require_once('Model/User.php');?>
 <?php require_once('Controller/userController.php');?>
 

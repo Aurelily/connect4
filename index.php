@@ -1,4 +1,4 @@
-<?php $title="Welcome" ?>
+<?php $title="Connect4" ?>
 <?php session_start(); ?>
 <?php require_once('Model/User.php');?>
 <?php require_once('Controller/userController.php');?>

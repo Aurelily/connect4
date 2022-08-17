@@ -41,9 +41,16 @@ if (isset($_POST['submit_save_game'])){
  
         Game::updateGameInfo($moveP1, $moveP2, $winner, $game_name);
 
+
+        //Si le gagnant est le joueur 1, j'update la colonne winner avec le login de l'utilisateur connecté, j'update le nombre de partie gagnée du user connecté. Sinon je laisse joueur 2 dans la colonne winner
+        
         if($winner == "Joueur 1"){
                 User::updateUserWinGames($login);
+                Game::updateGameInfo($moveP1, $moveP2, $login, $game_name);
+        }else{
+                Game::updateGameInfo($moveP1, $moveP2, $winner, $game_name);
         }
+        
 
         $_SESSION['inGame'] = false; 
         header('location: ./stats.php');
