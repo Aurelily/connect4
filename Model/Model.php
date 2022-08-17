@@ -8,17 +8,12 @@ abstract class Model {
     // Instancie et renvoie l'objet PDO associé 
     private static function getBdd() 
     {
- /*        //version locale
+        //version locale
         $servername = 'localhost';
         $username = 'root';
         $password = 'root';
-        $db = 'connect4'; */
-
-        //version PLESK
-        $servername = 'localhost';
-        $username = 'lilyconnec4';
-        $password = 'lilyBDD';
-        $db = 'aurelie-preaud_connect4';
+        $db = 'connect4';
+        
 
         try
         {
