@@ -2,8 +2,9 @@ CONNECT 4 JS GAME
 -----------------
  
 📆 Build in : August 2022
-🖥 Type : Web Javascript / Php / MySql Responsive project.   
-🔗 OVH : Play here :  https://design-dev.net/connect4/   
+
+🖥 Type : Web Javascript Game
+🔗O VH : Play here :  https://design-dev.net/connect4/   
 
 -----------------
 
