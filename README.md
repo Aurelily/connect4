@@ -20,6 +20,7 @@ Overview
 * Design and illustrations
 * Complete responsive design integration
 * Use Vanilla JS and CSS animations
+* Victory and game algorithms
 * MySql Database with charts and games saves
 
 🛠 Stacks
